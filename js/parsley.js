@@ -2307,7 +2307,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     mincheck: "You must select at least %s choices.",
     maxcheck: "You must select %s choices or fewer.",
     check: "You must select between %s and %s choices.",
-    equalto: "This value should be the same."
+    equalto: "Las contraseñas deben coincidir."
   });
 
   Parsley.setLocale('en');
