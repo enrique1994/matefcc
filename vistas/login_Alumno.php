@@ -25,16 +25,14 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <style type="text/css">
-<!--
 .Estilo1 {font-size: 30px}
--->
   </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo Estilo1">
     <a href="#"><strong>Inicio de sesión Alumno </strong></a>  </div>
-  <!-- /.login-logo -->
+ 
   <div class="login-box-body">
     <p class="login-box-msg">Inserte sus datos para iniciar sesión </p>
             <?php
