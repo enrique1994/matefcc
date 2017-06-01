@@ -1,5 +1,5 @@
 <?php
-require_once '../php/conexion.php';
+include_once '../php/conexion.php';
 
 if($alumno->is_loggedin()!="")
 {
