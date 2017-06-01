@@ -1,4 +1,26 @@
+<?php
+require_once '../php/conexion.php';
 
+if($alumno->is_loggedin()!="")
+{
+ $alumno->redirect('home_alumno.php');
+}
+
+if(isset($_POST['btn-login']))
+{
+ $uname = $_POST['txt_uname'];
+ $upass = $_POST['txt_password'];
+  
+ if($alumno->login($uname,$upass))
+ {
+  $alumno->redirect('home_alumno.php');
+ }
+ else
+ {
+  $error = "Contraseña o Matricula incorrecta";
+ } 
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
