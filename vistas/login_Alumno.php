@@ -1,4 +1,26 @@
+<?php
+include_once '../php/conexion.php';
 
+if($alumno->is_loggedin()!="")
+{
+ $alumno->redirect('home_alumno.php');
+}
+
+if(isset($_POST['btn-login']))
+{
+ $uname = $_POST['txt_uname'];
+ $upass = $_POST['txt_password'];
+  
+ if($alumno->login($uname,$upass))
+ {
+  $alumno->redirect('home_alumno.php');
+ }
+ else
+ {
+  $error = "Contraseña o Matricula incorrecta";
+ } 
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +57,16 @@
  
   <div class="login-box-body">
     <p class="login-box-msg">Inserte sus datos para iniciar sesión </p>
-           
+            <?php
+            if(isset($error))
+            {
+                  ?>
+                  <div class="alert alert-danger">
+                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?> !
+                  </div>
+                  <?php
+            }
+            ?>
     <form method="post">
       <div class="form-group has-feedback">
         <input type="number" class="form-control" name="txt_uname" placeholder="Matricula"  required>
