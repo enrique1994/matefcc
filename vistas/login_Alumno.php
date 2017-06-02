@@ -1,6 +1,6 @@
 <?php
 include_once '../php/conexion.php';
-
+ini_set('display_errors', 1);
 if($alumno->is_loggedin()!="")
 {
  $alumno->redirect('home_alumno.php');
