@@ -11,10 +11,10 @@ $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 $v1=$_GET['a'];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "seguimiento_academico";
+$servername = "us-cdbr-azure-southcentral-f.cloudapp.net";
+$username = "b9a859ae739783";
+$password = "903a2e5b";
+$dbname = "matefcc";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

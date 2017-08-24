@@ -14,50 +14,49 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
     switch($buscar)
     {
         case 1: 
-	           $link=mysqli_connect("localhost","root","");
-                mysqli_select_db($link,"seguimiento_academico");
+	           $link=mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net","b9a859ae739783","903a2e5b");
+                mysqli_select_db($link,"matefcc");
     
                 $resultado=mysqli_query($link,"SELECT nombre, calificacion FROM materia,curso,inscripcion WHERE nombre = 'Metodologia de la programacion' AND id_materia = id AND id_curso = nrc ");
                 break;
         
         case 2: 
-	           $link=mysqli_connect("localhost","root","");
-                mysqli_select_db($link,"seguimiento_academico");
-
+        $link=mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net","b9a859ae739783","903a2e5b");
+        mysqli_select_db($link,"matefcc");
                 $resultado=mysqli_query($link,"SELECT nombre, calificacion FROM materia,curso,inscripcion WHERE nombre = 'Programacion I' AND id_materia = id AND id_curso = nrc ");
                 break;
         
         case 3: 
-	           $link=mysqli_connect("localhost","root","");
-                mysqli_select_db($link,"seguimiento_academico");
+        $link=mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net","b9a859ae739783","903a2e5b");
+        mysqli_select_db($link,"matefcc");
 
                 $resultado=mysqli_query($link,"SELECT nombre, calificacion FROM materia,curso,inscripcion WHERE nombre = 'Programacion II' AND id_materia = id AND id_curso = nrc ");
                 break;
             
         case 4: 
-	           $link=mysqli_connect("localhost","root","");
-                mysqli_select_db($link,"seguimiento_academico");
+        $link=mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net","b9a859ae739783","903a2e5b");
+        mysqli_select_db($link,"matefcc");
     
                 $resultado=mysqli_query($link,"SELECT nombre, calificacion FROM materia,curso,inscripcion WHERE nombre = 'Estructura de datos' AND id_materia = id AND id_curso = nrc ");
                 break;
     
         case 5: 
-	           $link=mysqli_connect("localhost","root","");
-                mysqli_select_db($link,"seguimiento_academico");
+        $link=mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net","b9a859ae739783","903a2e5b");
+        mysqli_select_db($link,"matefcc");
             
                 $resultado=mysqli_query($link,"SELECT nombre,calificacion FROM materia,curso,inscripcion WHERE nombre = 'Programacion Distribuida' AND id_materia = id AND id_curso = nrc ");
                 break;
             
         case 6: 
-	           $link=mysqli_connect("localhost","root","");
-                mysqli_select_db($link,"seguimiento_academico");
+        $link=mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net","b9a859ae739783","903a2e5b");
+        mysqli_select_db($link,"matefcc");
             
                 $resultado=mysqli_query($link,"SELECT nombre,calificacion FROM materia,curso,inscripcion WHERE nombre = 'Aplicaciones web' AND id_materia = id AND id_curso = nrc ");
                 break;
         
         case 7: 
-	           $link=mysqli_connect("localhost","root","");
-                mysqli_select_db($link,"seguimiento_academico");
+        $link=mysqli_connect("us-cdbr-azure-southcentral-f.cloudapp.net","b9a859ae739783","903a2e5b");
+        mysqli_select_db($link,"matefcc");
             
                 $resultado=mysqli_query($link,"SELECT nombre,calificacion FROM materia,curso,inscripcion WHERE nombre = 'Programacion paralela y concurrente' AND id_materia = id AND id_curso = nrc ");
                 break;
