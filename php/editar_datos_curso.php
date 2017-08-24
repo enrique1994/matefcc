@@ -8,10 +8,10 @@ $seccion=$_POST['seccion'];
 $periodo=$_POST['periodo'];
 $year=$_POST['year'];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "seguimiento_academico";
+$servername = "us-cdbr-azure-southcentral-f.cloudapp.net";
+$username = "b9a859ae739783";
+$password = "903a2e5b";
+$dbname = "matefcc";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
