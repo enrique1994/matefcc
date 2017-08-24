@@ -13,11 +13,16 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "seguimiento_academico";
-
+$servername = "us-cdbr-azure-southcentral-f.cloudapp.net";
+$username = "b9a859ae739783";
+$password = "903a2e5b";
+$dbname = "matefcc";
+/*
+$DB_host = "us-cdbr-azure-southcentral-f.cloudapp.net";
+$DB_user = "b9a859ae739783";
+$DB_pass = "903a2e5b";
+$DB_name = "matefcc";
+*/
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
