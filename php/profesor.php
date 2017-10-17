@@ -209,16 +209,9 @@ class profesor{
     
              public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_cub,$ext_tel){
        try
-       {
-            $stmt = $this->db->prepare("SELECT * FROM profesor WHERE id=:id");
-			$stmt->execute(array(":id"=>$id));
-			$count = $stmt->rowCount();
-           
-           	if($count==1){
-				
-
-        
-			$stmt = $this->db->prepare("UPDATE profesor set id=:id, nombre=:nombre,paterno=:paterno,materno=:materno,email=:correo,password=:password,num_cub=:num_cub,ext_tel=:ext_tel,tipo=1 where id=:id");
+       {   
+           	
+			$stmt = $this->db->prepare("INSERT INTO profesor (id,nombre,paterno,materno,email,password,num_cub,ext_tel,tipo) VALUES (:id,:nombre,:paterno,:materno,:correo,:password,:num_cub,ext_tel,1)");
 			$stmt->bindParam(":id",$id);
 			$stmt->bindParam(":nombre",$nombre);
 			$stmt->bindParam(":paterno",$paterno);
@@ -239,10 +232,10 @@ class profesor{
                 return $stmt;
 			
 			}
-			else{
+		
 				
 				echo "1"; //  not available
-			}
+			
        }
        catch(PDOException $e)
        {
