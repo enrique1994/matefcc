@@ -211,7 +211,7 @@ class profesor{
        try
        {   
            	
-			$stmt = $this->db->prepare("INSERT INTO profesor (id,nombre,paterno,materno,email,password,num_cub,ext_tel,tipo) VALUES (:id,:nombre,:paterno,:materno,:correo,:password,:num_cub,ext_tel,1)");
+			$stmt = $this->db->prepare("INSERT INTO profesor (id,nombre,paterno,materno,email,password,num_cub,ext_tel,tipo) VALUES (:id,:nombre,:paterno,:materno,:correo,:password,:num_cub,:ext_tel,1)");
 			$stmt->bindParam(":id",$id);
 			$stmt->bindParam(":nombre",$nombre);
 			$stmt->bindParam(":paterno",$paterno);

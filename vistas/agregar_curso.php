@@ -500,7 +500,7 @@ $result = $conn->query($sql);
             <form role="form" id="demo-form"  method="POST">
               ID del Profesor:
               <div >
-              <input class="form-control" type="number" name="id" value="<?php echo $user_id; ?>" readonly> 
+              <input class="form-control" type="number" name="id" value="<?php echo $user_id; ?>" hidden="true"> 
                
               </div>
               <br>
