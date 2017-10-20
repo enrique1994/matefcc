@@ -1,16 +1,3 @@
-<?php
-//include_once '../php/conexion.php';
-/*
-if(!$alumno->is_loggedin())
-{
- $alumno->redirect('../index.html');
-}
-$user_id = $_SESSION['user_session'];
-$stmt = $DB_con->prepare("SELECT * FROM alumno WHERE matricula=:user_id");
-$stmt->execute(array(":user_id"=>$user_id));
-$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-*/
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +29,20 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
     		background-color: #e7f3fe;
     		border-left: 6px solid #2196F3;
 		}
+        .tarjeta{
+            height: 200px;
+            border-radius: 20px;
+        }
+        .titulo_app{
+            position: absolute;
+            margin: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .titulo_app a{
+            color: white;
+        }
     </style>
     <script>
      var idalumno = '<?php echo $user_id; ?>'; 
@@ -308,15 +309,6 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
             </span>
           </a>
         </li>
-
-        <li>
-          <a href="aplicaciones.php">
-            <i class="glyphicon glyphicon-th"></i> <span>Aplicaciones</span>
-            <span class="pull-right-container">
-              <!--<small class="label pull-right bg-green">Hot</small> -->
-            </span>
-          </a>
-        </li>
           
         
         <!--
@@ -478,35 +470,45 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
       </ol>
       -->
     </section>
-
+    <!--#miparte-->
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Anuncios</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
+        <br>
+        <div class="container" id="escritorio">
+            <div class="row">
+                <div class="col-sm-5 tarjeta" style="background:#F50057;">
+                    <h1 class="titulo_app"><a href="https://www.geogebra.org/m/YhMm8vgX" target="_blank">Geogebra®</a></h1>
+                </div>
+                <div class="col-sm-5 tarjeta" style="background:#AA00FF;">
+                    <h1 class="titulo_app"><a href="http://www.dessci.com/en/products/mathtype/" target="_blank">MathType®</a></h1>
+                </div>
+                <div class="col-sm-5 tarjeta" style="background:#2196F3;">
+                    <h1 class="titulo_app"><a href="http://proyectodescartes.org/descartescms/" target="_blank">Descartes®</a></h1>
+                </div>
+                <div class="col-sm-5 tarjeta" style="background:#00BFA5;">
+                    <h1 class="titulo_app"><a href="https://www.wolframalpha.com/" target="_blank">Wolphram Alpha®</a></h1>
+                </div>
+            </div>
         </div>
-        <div class="box-body">
-          <div id="anuncios" class="infox">
-		          	
-	          	</div>
+        <div class="container" id="movil" style="display:none">
+            <div class="row">
+                <div class="col-sm-5 tarjeta" style="background:#F50057;">
+                    <h1 class="titulo_app"><a href="https://play.google.com/store/apps/details?id=org.geogebra.android&hl=es" target="_blank">Geogebra®</a></h1>
+                </div>
+                <div class="col-sm-5 tarjeta" style="background:#AA00FF;">
+                    <h1 class="titulo_app"><a href="https://play.google.com/store/apps/details?id=com.infologic.mathmagiclite&hl=es" target="_blank">MathMagic Lite®</a></h1>
+                </div>
+                <div class="col-sm-5 tarjeta" style="background:#2196F3;">
+                    <h1 class="titulo_app"><a href="https://play.google.com/store/apps/details?id=com.duy.calculator.free&hl=es" target="_blank">Calculator N+®</a></h1>
+                </div>
+                <div class="col-sm-5 tarjeta" style="background:#00BFA5;">
+                    <h1 class="titulo_app"><a href="https://play.google.com/store/apps/details?id=com.wolfram.android.alpha&hl=es" target="_blank">Wolphram Alpha®</a></h1>
+                </div>
+            </div>
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-
+        <script src="jquery.min.js"></script>
+        <script src="detect.js"></script>
+        <script src="programa.js"></script>
     </section>
     <!-- /.content -->
   </div>
