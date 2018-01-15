@@ -231,12 +231,8 @@ class profesor{
                 
                 return $stmt;
 			
-			}
-		
-				
-				echo "1"; //  not available
-			
-       }
+			}			
+       
        catch(PDOException $e)
        {
            echo $e->getMessage();
