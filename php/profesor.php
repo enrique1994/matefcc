@@ -207,7 +207,7 @@ class profesor{
   }
     }
     
-             public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_cub,$ext_tel){
+public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_cub,$ext_tel){
        try
        {   
            	
@@ -226,13 +226,12 @@ class profesor{
 				}
 				else
 				{
-					echo "No se puede ejecutar !";
+					echo "No se puede registrar !";
 				}
                 
                 return $stmt;
 			
-			}			
-       
+
        catch(PDOException $e)
        {
            echo $e->getMessage();
