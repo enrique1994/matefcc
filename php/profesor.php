@@ -231,12 +231,12 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
                 
                 return $stmt;
 			
-
+        }
        catch(PDOException $e)
        {
            echo $e->getMessage();
        }    
-    }
+    
   }
     public function registrar_curso($id,$nrc,$materia,$seccion,$dias,$hora,$periodo,$fecha,$fecha2,$dia1,$dia2,$dia3){
 //variables
