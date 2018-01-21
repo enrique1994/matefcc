@@ -485,7 +485,7 @@ $result = $conn->query($sql);
                <!-- alert para error de formulario -->
     <div class="alert alert-danger hidden" id="error_valid">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <p id="errmsg_valid">Corrige los errores en el formulario</p>
+      <p id="errmsg _valid">Corrige los errores en el formulario</p>
     </div>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -500,7 +500,7 @@ $result = $conn->query($sql);
             <form role="form" id="demo-form"  method="POST">
               ID del Profesor:
               <div >
-              <input class="form-control" type="number" name="id" value="<?php echo $user_id; ?>" hidden="true"> 
+              <input class="form-control" type="number" name="id" value="<?php echo $user_id; ?>" hidden="true" disabled> 
                
               </div>
               <br>
@@ -537,8 +537,6 @@ $result = $conn->query($sql);
                 <br>
                 Salones:
               <div ><input class="form-control" type="text" name="dia1" placeholder="Edificio-salón1"></div><br>
-              <div ><input class="form-control" type="text" name="dia2" placeholder="Edificio-salón2"></div><br>
-              <div ><input class="form-control" type="text" name="dia3" placeholder="Edificio-salón3"></div>
               <br>
               <div >
               Hora:
@@ -567,10 +565,10 @@ for ($i=0; $i <3 ; $i++) {
  $mes=$mes+4*$i;
   # code...
 
-if($mes<6){
+if($mes<=5){
 $total="Primavera -".$fecha1['year'];
 }
-if($mes>5 && $fecha2['mon']<8){
+if($mes>5 && $fecha2['mon']<=7){
 $total="Verano -".$fecha1['year'];
 }
 if($mes>7 ){
@@ -593,9 +591,9 @@ $total="Otono -".$fecha1['year'];
 <br>
 
 
-<div >Inicio de cuatrimestre:<input class="form-control" type="date" name="fecha"></div>
+<div >Inicio del curso:<input class="form-control" type="date" name="fecha"></div>
 <br>
-<div >Fin de cuatrimestre:<input class="form-control" type="date" name="fecha2"></div>
+<div >Fin del curso:<input class="form-control" type="date" name="fecha2"></div>
 
               </div>
              

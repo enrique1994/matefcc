@@ -238,7 +238,7 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
        }    
     
   }
-    public function registrar_curso($id,$nrc,$materia,$seccion,$dias,$hora,$periodo,$fecha,$fecha2,$dia1,$dia2,$dia3){
+    public function registrar_curso($id,$nrc,$materia,$seccion,$dias,$hora,$periodo,$fecha,$fecha2,$dia1){
 //variables
       $count=0;
       $ct2=0;
@@ -406,39 +406,8 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
 
 
 
-      $stmt5 = $this->db->prepare("INSERT INTO horarios(salon,dias,hora,nrc_curso,fecha_inicio,fecha_final) VALUES(:salon,:dias,:hora,:nrc_curso,:fecha_inicio,:fecha_final)");
-      $stmt5->bindParam(":salon",$dia2);
-      $stmt5->bindParam(":dias",$dias[1]);
-      $stmt5->bindParam(":hora",$hora);
-      $stmt5->bindParam(":nrc_curso",$nrc);
-      $stmt5->bindParam(":fecha_inicio",$fecha);
-      $stmt5->bindParam(":fecha_final",$fecha2);
-        if($stmt5->execute())
-        {
-         // echo "horario 2 registrado";
-        }
-        else
-        {
-          //echo "No se puede ejecutar !";
-        }
-        
 
 
-      $stmt6 = $this->db->prepare("INSERT INTO horarios(salon,dias,hora,nrc_curso,fecha_inicio,fecha_final) VALUES(:salon,:dias,:hora,:nrc_curso,:fecha_inicio,:fecha_final)");
-      $stmt6->bindParam(":salon",$dia3);
-      $stmt6->bindParam(":dias",$dias[2]);
-      $stmt6->bindParam(":hora",$hora);
-      $stmt6->bindParam(":nrc_curso",$nrc);
-      $stmt6->bindParam(":fecha_inicio",$fecha);
-      $stmt6->bindParam(":fecha_final",$fecha2);
-        if($stmt6->execute())
-        {
-         echo "registrado";
-        }
-        else
-        {
-         // echo "No se puede ejecutar !";
-        }
         
       }else
     {

@@ -15,9 +15,6 @@
 		//echo $dias[0];
 		$dia1=$_POST['dia1'];
 		//echo $dia1;
-		$dia2=$_POST['dia2'];
-		//echo $dia2;
-		$dia3=$_POST['dia3'];
 		//echo $dia3;	
 		$hora=$_POST['hora'];	
 		//echo $hora;
@@ -30,7 +27,7 @@
 		//echo $fecha2;
 
 		//$newpassword = md5($password);
-		$profesor->registrar_curso($id,$nrc,$materia,$seccion,$dias,$hora,$periodo,$fecha,$fecha2,$dia1,$dia2,$dia3);
+		$profesor->registrar_curso($id,$nrc,$materia,$seccion,$dias,$hora,$periodo,$fecha,$fecha2,$dia1);
 	    //if($propietario->register($email,$newpassword,$nombre,$apellidop,$apellidom,$direccion,$cp)){
         //   echo "bien";
         //}else
