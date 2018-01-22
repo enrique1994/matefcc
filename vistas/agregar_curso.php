@@ -565,13 +565,13 @@ for ($i=0; $i <3 ; $i++) {
  $mes=$mes+4*$i;
   # code...
 
-if($mes<=5){
+if($i==0){
 $total="Primavera -".$fecha1['year'];
 }
-if($mes>5 && $fecha2['mon']<=7){
+if($i==1){
 $total="Verano -".$fecha1['year'];
 }
-if($mes>7 ){
+if($i==2){
 $total="Otono -".$fecha1['year'];
 }
 

@@ -54,10 +54,6 @@
                  
     
 								}
-                                else{
-                                  alert("Hay un error.");
-                                    console.log(data);
-                                }
                 
 			
 						   }
