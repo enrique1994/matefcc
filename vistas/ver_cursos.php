@@ -494,7 +494,7 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 <tr>
 		<td>
   	<?php
-$stmt1 = $DB_con->prepare("SELECT * FROM inscripcion WHERE id_alumno =:user_id");
+$stmt1 = $DB_con->prepare("SELECT * FROM inscripcion WHERE id_alumno =:user_id and id_curso=56345");
 $stmt1->execute(array(":user_id"=>$user_id));
 $ins=$stmt1->fetch(PDO::FETCH_ASSOC);
 
