@@ -556,7 +556,7 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
  
 
 
-
+        redirect("../vistas/cursos.php")
       }catch(PDOException $e)
        {
            echo $e->getMessage();
