@@ -14,8 +14,7 @@
 		$dias=explode("-",$dias);
 		//echo $dias[0];
 		$dia1=$_POST['dia1'];
-		//echo $dia1;
-		//echo $dia3;	
+		//echo $dia1;	
 		$hora=$_POST['hora'];	
 		//echo $hora;
 		$periodo=$_POST['periodo'];
