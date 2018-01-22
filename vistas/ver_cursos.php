@@ -562,6 +562,7 @@ echo $cal['calificacion'];
 </td>
 <td>
 <a href="Evaluar.php?a=<?php echo $cur['nrc'] ?>">Evaluar</a></td>
+<td>hosadhsaodoasdoasdonaskdnsak</td>
 			</tr>
 
 
