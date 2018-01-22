@@ -548,8 +548,8 @@ echo $userRow2['materno'];
 	?>
 </td>
 <?php
-$stmt3 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_alumno=:mat order by id_criterios");
-$stmt3->execute(array("mat"=>$alu));
+$stmt3 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_alumno=:mat and nrc_curso=:nrc order by id_criterios");
+$stmt3->execute(array("mat"=>$alu,"nrc"=>$nrc),);
 while ($userRow3=$stmt3->fetch(PDO::FETCH_ASSOC)) {
 	$cont=$stmt3->rowCount();
 	

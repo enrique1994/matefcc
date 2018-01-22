@@ -549,19 +549,15 @@ echo $per['ciclo']." ".$per['year'];
 
 <td>
 <?php
-$stmt7 = $DB_con->prepare("SELECT * FROM inscripcion WHERE id_curso =:id_cur and id_alumno=:id_alu");
+$min=localtime()[1]
+$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE hora+20 <min and id_alumno=:mat and nrc_curso=:id_curso");
 $stmt7->execute(array(":id_cur"=>$cur['nrc'],":id_alu"=>$userRow['matricula']));
 $cal=$stmt7->fetch(PDO::FETCH_ASSOC);
 
-echo $cal['calificacion'];
+echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
   ?>
 </td>
 
-<td>
-  <a href="Materia.php?a=<?php echo $cur['nrc'] ?>">Detalles</a>
-</td>
-<td>
-<a href="Evaluar.php?a=<?php echo $cur['nrc'] ?>">Evaluar</a></td>
 			</tr>
 
 
