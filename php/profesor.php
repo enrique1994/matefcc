@@ -556,7 +556,7 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
  
 
 
-        redirect("../vistas/cursos.php");
+echo '<script language="javascript">window.location.href="../vistas/cursos.php" ;</script>'; 
       }catch(PDOException $e)
        {
            echo $e->getMessage();

@@ -474,6 +474,10 @@ $nrc=$_GET['nrc'];
 <br>
 <input type="number" name="porcentaje" placeholder="1-100">
 <br>
+<select name="eva">
+  <option value="1" >Alumno</option>
+  <option value="2">Maestro</option>
+</select>
 <INPUT type="submit" value="Enviar">
 </form>
 

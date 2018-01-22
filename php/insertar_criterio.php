@@ -12,13 +12,13 @@ $nrc=$_POST['nrc'];
 //echo $nrc;
 $descripcion=$_POST['descripcion'];
 $porcentaje=$_POST['porcentaje'];
-
-      $stmt = $DB_con->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje) VALUES(:nrc_curso,:id_profesor,:descripcion,:porcentaje)");
+$eva=$_POST['eva'];
+      $stmt = $DB_con->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado) VALUES(:nrc_curso,:id_profesor,:descripcion,:porcentaje,:eva)");
       $stmt->bindParam(":nrc_curso",$nrc);
       $stmt->bindParam("id_profesor",$user_id);
-      $stmt->bindParam("descripcion",$descripcion);
-      $stmt->bindParam("porcentaje",$porcentaje);
-      
+      $stmt->bindParam(":descripcion",$descripcion);
+      $stmt->bindParam(":porcentaje",$porcentaje);
+      $stmt->bindParam(":eva",$eva);
         if($stmt->execute())
         {
  echo '<script language="javascript">alert("Criterio insertado correctamente")</script>'; 
