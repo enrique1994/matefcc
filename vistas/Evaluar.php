@@ -550,8 +550,8 @@ echo $per['ciclo']." ".$per['year'];
 <td>
 <?php
 $min=localtime()
-$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE hora+20 <$min[1] and id_alumno=:mat and nrc_curso=:id_curso and calif=0");
-$stmt7->execute(array(":id_curso"=>$cur['nrc'],":mat"=>$userRow['matricula']));
+$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE hora+20 <=$min[1] and id_alumno=:mat and nrc_curso=:id_curso and calif=0");
+$stmt7->execute(array(":id_curso"=>$ins['id_curso'],":mat"=>$userRow['matricula']));
 $cal=$stmt7->fetch(PDO::FETCH_ASSOC);
 
 echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
