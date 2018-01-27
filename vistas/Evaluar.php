@@ -551,7 +551,7 @@ echo $per['ciclo']." ".$per['year'];
 <?php
 
 
-$min=localtime()
+$min=localtime();
 $stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE hora+20 <=$min[1] and id_alumno=:mat and nrc_curso=:id_curso and calif=0");
       $stmt7->bindParam(":id_curso",$ins['id_curso']);
       $stmt7->bindParam(":mat",$userRow['matricula']);
