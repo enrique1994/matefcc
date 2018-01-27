@@ -552,13 +552,16 @@ echo $per['ciclo']." ".$per['year'];
 
 
 $min=localtime();
-$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE hora+20 <=localtime()[1] and id_alumno=:mat and nrc_curso=:id_curso and calif=0");
-      $stmt7->bindParam(":id_curso",$ins['id_curso']);
-      $stmt7->bindParam(":mat",$userRow['matricula']);
-      $stmt7->execute();
-//$stmt7->execute(array(":id_curso"=>$ins['id_curso'],":mat"=>$userRow['matricula']));
-$cal=$stmt7->fetch(PDO::FETCH_ASSOC);
+$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE nrc_curso=:id_cur and id_criterios=:crit and id_alumno=:id_alumno");
+$stmt7->execute(array(":id_cur"=>$a,"crit"=>$cri['id'],"id_alumno"=>$user_id));
 
+//$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE hora+20 <=localtime()[1] and id_alumno=:mat and nrc_curso=:id_curso and calif=0");
+  //    $stmt7->bindParam(":id_curso",$ins['id_curso']);
+    //  $stmt7->bindParam(":mat",$userRow['matricula']);
+      //$stmt7->execute();
+//$stmt7->execute(array(":id_curso"=>$ins['id_curso'],":mat"=>$userRow['matricula']));
+//$cal=$stmt7->fetch(PDO::FETCH_ASSOC);
+$cal=$stmt7->fetch(PDO::FETCH_ASSOC)
 echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
   */
   ?>
