@@ -566,7 +566,7 @@ print $user_id;
 //$stmt7->execute(array(":id_curso"=>$ins['id_curso'],":mat"=>$userRow['matricula']));
 //$cal=$stmt7->fetch(PDO::FETCH_ASSOC);
 //$cal=$stmt7->fetch(PDO::FETCH_ASSOC)
-echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
+//echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
   */
   ?>
 </td>
