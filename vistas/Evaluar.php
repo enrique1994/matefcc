@@ -551,8 +551,8 @@ echo $per['ciclo']." ".$per['year'];
 <?php
 
 
-$min=localtime();
-print localtime();
+$min=localtime()[1];
+print $min;
 //print $a;
 //print $cri['id'];
 //print $user_id; 
