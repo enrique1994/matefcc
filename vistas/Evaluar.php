@@ -568,7 +568,7 @@ print $min;
 //$cal=$stmt7->fetch(PDO::FETCH_ASSOC);
 //$cal=$stmt7->fetch(PDO::FETCH_ASSOC)
 //echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
-  */
+  
   ?>
 </td>
 
