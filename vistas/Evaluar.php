@@ -553,9 +553,9 @@ echo $per['ciclo']." ".$per['year'];
 
 $min=localtime()[1];
 print $min;
-//print $a;
-//print $cri['id'];
-//print $user_id; 
+print $a;
+print $cri['id'];
+print $user_id; 
 
 //$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE nrc_curso=:id_cur and id_criterios=:crit and id_alumno=:id_alumno");
 //$stmt7->execute(array(":id_cur"=>$a,"crit"=>$cri['id'],"id_alumno"=>$user_id));
