@@ -546,7 +546,7 @@ $per=$stmt6->fetch(PDO::FETCH_ASSOC);
 echo $per['ciclo']." ".$per['year'];
 	?>
 </td>
-
+<form action="../php/calificacion_alumno.php" method="POST">
 <td>
 <?php
 
@@ -573,6 +573,9 @@ echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
 
 
               </table>
+              <input type="submit" value="Subir">
+</form>
+
               </div>
             </div>
             <!-- /.box-body -->
