@@ -552,7 +552,7 @@ echo $per['ciclo']." ".$per['year'];
 
 
 $min=localtime();
-print $min[1];
+print localtime();
 //print $a;
 //print $cri['id'];
 //print $user_id; 
