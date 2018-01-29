@@ -24,13 +24,13 @@ while ($alu=$stmt2->fetch(PDO::FETCH_ASSOC)) {
 
 
       if ($cri['evaluado']==1) {
-        $ej=$_POST['porcentaje']
+        $ej=$_POST['porcentaje'];
               $stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno,hora,maximo_ejer) VALUES(:nrc_curso,:id_criterios,:id_alumno,:hora,:ej)");
       $stmt3->bindParam(":nrc_curso",$curso);
       $stmt3->bindParam(":id_criterios",$id);
       $stmt3->bindParam(":id_alumno",$est);
       $stmt3->bindParam(":hora", localtime()[1]);
-      $stmt3->bindParam("ej",$ej);
+      $stmt3->bindParam(":ej",$ej);
         if($stmt3->execute())
         {
  echo '<script language="javascript">alert("Criterio de evaluacion insertado")</script>'; 
