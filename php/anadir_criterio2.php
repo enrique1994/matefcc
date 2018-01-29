@@ -24,7 +24,7 @@ while ($alu=$stmt2->fetch(PDO::FETCH_ASSOC)) {
 
 
       if ($cri['evaluado']==1) {
-$stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno,hora,maximo_ejer) VALUES(:nrc_curso,:id_criterios,:id_alumno,:hora,:ej)");
+$stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno,hora,maximo_ejer) VALUES(:nrc_curso,:id_criterios,:id_alumno,:hora,8)");
       $stmt3->bindParam(":nrc_curso",$curso);
       $stmt3->bindParam(":id_criterios",$id);
       $stmt3->bindParam(":id_alumno",$est);
