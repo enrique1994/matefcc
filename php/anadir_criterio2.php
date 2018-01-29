@@ -22,7 +22,7 @@ $stmt2->execute(array(":id_curso"=>$curso));
 while ($alu=$stmt2->fetch(PDO::FETCH_ASSOC)) {
 	$est=$alu['id_alumno']."<br>";
 
-
+echo $_POST['porcentaje'];
  /*     
  $stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno,hora,maximo_ejer) VALUES(:nrc_curso,:id_criterios,:id_alumno,:hora,10)");
       $stmt3->bindParam(":nrc_curso",$curso);
