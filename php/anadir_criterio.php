@@ -8,7 +8,7 @@ $user_id = $_SESSION['user_session'];
 $stmt = $DB_con->prepare("SELECT * FROM profesor WHERE id=:user_id");
 $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-$id=$_GET['a'];
+$id=$_GET['id'];
 
 
 $stmt1 = $DB_con->prepare("SELECT * FROM criterios_evaluacion WHERE id=:id");
