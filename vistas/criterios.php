@@ -499,7 +499,8 @@ $stmt1->execute(array(":nrc_curso"=>$nrc));
  	</td>
 
 <td>
-<!--<a href="../php/anadir_criterio.php?id=<?php echo $cri['id'] ?>">Anadir</a> 	-->	
+<!--<a href="../php/anadir_criterio.php?id=
+  <?php //echo $cri['id'] ?>">Anadir</a> 	-->	
 <?php
 if($cri['evaluado']==1){
 echo "<a href=num_eje.php?id=$cri['id']>Anadir</a>";  
