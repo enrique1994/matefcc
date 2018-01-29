@@ -17,7 +17,7 @@ $hola=$_POST;
 foreach ($hola as $i => $value) {
 	echo $i."<br>";
 if($value>=0 && $value<=10){
-$stmt1 = $DB_con->prepare("UPDATE evaluacion set calif=$value/maximo_ejer, num_ejer=:calif WHERE id=:id");
+$stmt1 = $DB_con->prepare("UPDATE evaluacion set calif=$value/maximo_ejer*10, num_ejer=:calif WHERE id=:id");
 $stmt1->bindParam(":calif",$value);
 $stmt1->bindParam(":id",$i);
 $stmt1->execute();
