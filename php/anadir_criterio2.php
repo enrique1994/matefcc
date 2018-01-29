@@ -23,7 +23,7 @@ while ($alu=$stmt2->fetch(PDO::FETCH_ASSOC)) {
 	$est=$alu['id_alumno']."<br>";
 
 
-      
+ /*     
  $stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno,hora,maximo_ejer) VALUES(:nrc_curso,:id_criterios,:id_alumno,:hora,10)");
       $stmt3->bindParam(":nrc_curso",$curso);
       $stmt3->bindParam(":id_criterios",$id);
@@ -39,7 +39,7 @@ echo '<script language="javascript">window.location.href="../vistas/cursos.php" 
         {
           echo "No se puede ejecutar !";
         }
-      
+   */   
       
 }
 
