@@ -507,7 +507,7 @@ echo "<a href=num_eje.php?id=$cri[id]>Anadir</a>";
 }
 else{
  echo "<a href=../php/anadir_criterio.php?id=$cri[id]>Anadir</a>";
-//}
+}
 ?>
 <!--<a href="anadir_criterio.php?id=<?php //echo $cri['id'] ?>">Anadir</a>--> 
  	</td>
