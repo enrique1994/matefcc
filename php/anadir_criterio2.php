@@ -17,7 +17,7 @@ $cri=$stmt1->fetch(PDO::FETCH_ASSOC);
 
 $curso=$cri['nrc_curso'];
 $ej=$_POST['porcentaje'];
-        
+echo $_POST;       
 $stmt2 = $DB_con->prepare("SELECT * FROM inscripcion WHERE id_curso=:id_curso");
 $stmt2->execute(array(":id_curso"=>$curso));
 while ($alu=$stmt2->fetch(PDO::FETCH_ASSOC)) {
