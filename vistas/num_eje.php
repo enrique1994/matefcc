@@ -467,9 +467,10 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
           </div>
         </div>
         <div class="box-body">
-<form action="../php/insertar_criterio.php" method="POST">
+<form action="../php/anadir_criterio.php" method="POST">
+<input type="text" name="id" value="<?php echo $userRow['id'];?>" >
+<br>  
 <input type="text" name="nrc" value="<?php echo $userRow['descripcion'];?>" >
-
 <br>
 <input type="number" name="porcentaje" placeholder="Numero maximo">
 <br>

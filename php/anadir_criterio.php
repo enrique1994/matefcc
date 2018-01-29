@@ -8,7 +8,7 @@ $user_id = $_SESSION['user_session'];
 $stmt = $DB_con->prepare("SELECT * FROM profesor WHERE id=:user_id");
 $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-$id=$_GET['id'];
+$id=$_POST['id'];
 
 
 $stmt1 = $DB_con->prepare("SELECT * FROM criterios_evaluacion WHERE id=:id");
@@ -24,11 +24,13 @@ while ($alu=$stmt2->fetch(PDO::FETCH_ASSOC)) {
 
 
       if ($cri['evaluado']==1) {
-              $stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno,hora) VALUES(:nrc_curso,:id_criterios,:id_alumno,:hora)");
+        $ej=$_POST['porcentaje']
+              $stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno,hora,maximo_ejer) VALUES(:nrc_curso,:id_criterios,:id_alumno,:hora,:ej)");
       $stmt3->bindParam(":nrc_curso",$curso);
       $stmt3->bindParam(":id_criterios",$id);
       $stmt3->bindParam(":id_alumno",$est);
       $stmt3->bindParam(":hora", localtime()[1]);
+      $stmt3->bindParam("ej",$ej);
         if($stmt3->execute())
         {
  echo '<script language="javascript">alert("Criterio de evaluacion insertado")</script>'; 
@@ -39,7 +41,7 @@ echo '<script language="javascript">window.location.href="../vistas/cursos.php" 
           echo "No se puede ejecutar !";
         }
       }else{
-      $stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno) VALUES(:nrc_curso,:id_criterios,:id_alumno)");
+      $stmt3 = $DB_con->prepare("INSERT INTO evaluacion(nrc_curso,id_criterios,id_alumno,max_ejer) VALUES(:nrc_curso,:id_criterios,:id_alumno,10)");
       $stmt3->bindParam(":nrc_curso",$curso);
       $stmt3->bindParam(":id_criterios",$id);
       $stmt3->bindParam(":id_alumno",$est);
