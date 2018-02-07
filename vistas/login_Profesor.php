@@ -74,7 +74,7 @@ if(isset($_POST['btn-login']))
             ?>
     <form method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="txt_uname" placeholder="Usuario" required>
+        <input type="text" class="form-control" name="txt_uname" placeholder="Numero de trabajador" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
