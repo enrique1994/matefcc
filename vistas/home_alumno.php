@@ -520,9 +520,9 @@ echo $prof['nombre']." ".$prof['paterno']." ".$prof['materno'];
     <?php
 $stmt2 = $DB_con->prepare("SELECT * FROM anuncio WHERE id_curso =:id_mat");
 $stmt2->execute(array(":id_mat"=>$ins['id_curso']));
-$cur=$stmt2->fetch(PDO::FETCH_ASSOC);
-while($cur=$stmt2->fetch(PDO::FETCH_ASSOC)){
-echo $cur['descripcion'];
+
+while($anun=$stmt2->fetch(PDO::FETCH_ASSOC)){
+echo $anun['descripcion'];
 }
     ?>
     </td>
