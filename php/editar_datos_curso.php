@@ -29,6 +29,12 @@ $result = $conn->query($sql);
 if (mysqli_query($conn, $sql)) {
     $con=$con+1;
 }
+
+$sql = "UPDATE inscripcion set id_curso=$nrc2 WHERE id_curso=$nrc";
+$result = $conn->query($sql);
+if (mysqli_query($conn, $sql)) {
+    $con=$con+1;
+}
 $sql = "UPDATE seccion set secc=$seccion where id=$row[2]";
 if (mysqli_query($conn, $sql)) {
     $con=$con+1;
@@ -45,8 +51,8 @@ if (mysqli_query($conn, $sql)) {
 } 
 
 
-if ($con ==4) {
- echo '<script language="javascript">alert("Valores editados correctamente")</script>'; 
+if ($con ==5) {
+echo '<script language="javascript">alert("Valores editados correctamente")</script>'; 
 echo '<script language="javascript">window.location.href="../vistas/cursos.php" ;</script>'; 
 }else{
 echo '<script language="javascript">alert("Valores no editados");</script>'; 
