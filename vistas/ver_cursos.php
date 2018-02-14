@@ -491,12 +491,13 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 				<th>Periodo</th>
                 <th>Calificación final</th>
                 </tr>
-<tr>
     <?php
 $stmt1 = $DB_con->prepare("SELECT * FROM inscripcion WHERE id_alumno =:user_id");
 $stmt1->execute(array(":user_id"=>$user_id));
 while($ins=$stmt1->fetch(PDO::FETCH_ASSOC)){
 ?>
+
+<tr>
 		<td>
 <?php
 echo $ins['id_curso'];
