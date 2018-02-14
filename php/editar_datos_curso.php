@@ -31,6 +31,13 @@ if (mysqli_query($conn, $sql)) {
 }
 
 
+$sql = "UPDATE anuncio set id_curso=$nrc2 WHERE id_curso=$nrc";
+$result = $conn->query($sql);
+if (mysqli_query($conn, $sql)) {
+    $con=$con+1;
+}
+
+
 $sql = "UPDATE inscripcion set id_curso=$nrc2 WHERE id_curso=$nrc";
 $result = $conn->query($sql);
 if (mysqli_query($conn, $sql)) {
@@ -52,7 +59,7 @@ if (mysqli_query($conn, $sql)) {
 } 
 
 
-if ($con ==5) {
+if ($con ==6) {
 echo '<script language="javascript">alert("Valores editados correctamente")</script>'; 
 echo '<script language="javascript">window.location.href="../vistas/cursos.php" ;</script>'; 
 }else{
