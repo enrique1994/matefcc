@@ -444,7 +444,7 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Cursos 
+       Página principal del Alumno
        <!-- <small>it all starts here</small>-->
       </h1>
 
