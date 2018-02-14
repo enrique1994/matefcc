@@ -521,7 +521,7 @@ echo $prof['nombre']." ".$prof['paterno']." ".$prof['materno'];
 $stmt2 = $DB_con->prepare("SELECT * FROM anuncio WHERE id_curso =:id_mat");
 $stmt2->execute(array(":id_mat"=>$ins['id_curso']));
 $cur=$stmt2->fetch(PDO::FETCH_ASSOC);
-while($cur=$stmt1->fetch(PDO::FETCH_ASSOC)){
+while($cur=$stmt2->fetch(PDO::FETCH_ASSOC)){
 echo $cur['descripcion'];
 }
     ?>
