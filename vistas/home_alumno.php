@@ -503,6 +503,10 @@ echo $ins['id_curso'];
 
 <td>
 <?php
+$stmt2 = $DB_con->prepare("SELECT * FROM curso WHERE nrc =:id_mat");
+$stmt2->execute(array(":id_mat"=>$ins['id_curso']));
+$cur=$stmt2->fetch(PDO::FETCH_ASSOC);
+
 $stmt5 = $DB_con->prepare("SELECT * FROM profesor WHERE id =:id_pro");
 $stmt5->execute(array(":id_pro"=>$cur['id_profesor']));
 $prof=$stmt5->fetch(PDO::FETCH_ASSOC);
@@ -514,7 +518,7 @@ echo $prof['nombre']." ".$prof['paterno']." ".$prof['materno'];
  
   <td>
     <?php
-$stmt2 = $DB_con->prepare("SELECT * FROM anuncio WHERE nrc =:id_mat");
+$stmt2 = $DB_con->prepare("SELECT * FROM anuncio WHERE id_curso =:id_mat");
 $stmt2->execute(array(":id_mat"=>$ins['id_curso']));
 $cur=$stmt2->fetch(PDO::FETCH_ASSOC);
 while($cur=$stmt1->fetch(PDO::FETCH_ASSOC)){
