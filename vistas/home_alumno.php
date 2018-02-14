@@ -523,6 +523,7 @@ $stmt2->execute(array(":id_mat"=>$ins['id_curso']));
 
 while($anun=$stmt2->fetch(PDO::FETCH_ASSOC)){
 echo $anun['descripcion'];
+echo "<br>";
 }
     ?>
     </td>
