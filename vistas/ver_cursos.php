@@ -492,12 +492,13 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
                 <th>Calificación final</th>
                 </tr>
 <tr>
-		<td>
-  	<?php
+    <?php
 $stmt1 = $DB_con->prepare("SELECT * FROM inscripcion WHERE id_alumno =:user_id");
 $stmt1->execute(array(":user_id"=>$user_id));
 while($ins=$stmt1->fetch(PDO::FETCH_ASSOC)){
-
+?>
+		<td>
+<?php
 echo $ins['id_curso'];
   	?>
   	</td>
@@ -562,11 +563,12 @@ echo $cal['calificacion'];
 </td>
 <td>
 <a href="Evaluar.php?a=<?php echo $cur['nrc'] ?>">Evaluar</a></td>
-			</tr>
-
 <?php
 }
 ?>
+			</tr>
+
+
       <!--Aqui acaba el renglon
 
 
