@@ -343,10 +343,59 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
         {
          // echo "No se puede ejecutar !";
         }
-              
+     
+for ($i=0; $i <3 ; $i++) { 
+  # code...
+
+      $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
+      $stmt3->bindParam(":num",$i+1);
+      $stmt3->bindParam(":id_materia",$nrc);
+        if($stmt3->execute())
+        {
+        //  echo " curso registrado";
+        }
+        else
+        {
+         // echo "No se puede ejecutar !";
+        }
+
+      $stmt2 = $this->db->prepare("select max(id_parcial) from parcial");
+      $stmt2->execute();
+      $maxpar=$stmt2->fetch();
+      $maxpar=$maxpar[0]+1;
+
+
+      $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->bindParam(":id_profesor",$id);
+      $stmt3->bindParam(":descripcion","Examen");
+      $stmt3->bindParam(":parcial",$maxpar);
+        if($stmt3->execute())
+        {
+        //  echo " curso registrado";
+        }
+        else
+        {
+         // echo "No se puede ejecutar !";
+        }
+
+      $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->bindParam(":id_profesor",$id);
+      $stmt3->bindParam(":descripcion","Ejercicio");
+      $stmt3->bindParam(":parcial",$maxpar);
+        if($stmt3->execute())
+        {
+        //  echo " curso registrado";
+        }
+        else
+        {
+         // echo "No se puede ejecutar !";
+        }
 
 
 
+}
     
 
 
