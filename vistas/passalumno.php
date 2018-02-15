@@ -503,10 +503,10 @@ $result = $conn->query($sql);
     <th>Materno</th>
   </tr>
   <?php
-$v1=$_GET['a'];
+$v1=$_GET['m'];
 
 
-$stmt1 = $DB_con->prepare("SELECT * FROM alumno inner join inscripcion WHERE id_curso=:user_id and inscripcion.id_alumno=matricula");
+$stmt1 = $DB_con->prepare("SELECT * FROM alumno WHERE id_curso=:user_id");
 $stmt1->execute(array(":user_id"=>$v1));
 while($alu=$stmt1->fetch(PDO::FETCH_ASSOC)){
   ?>
@@ -514,19 +514,11 @@ while($alu=$stmt1->fetch(PDO::FETCH_ASSOC)){
   <td><a href="passalumno.php?m=<?php echo $alu['matricula'] ?>"> <?php echo $alu['matricula'] ?></a>
 
   <td><?php
-echo $alu['nombre'];
+echo $alu['password'];
   ?>
   </td>
-  <td><?php
-echo $alu['paterno'];
-  ?>
-  </td>
-
-  <td><?php
-echo $alu['materno'];
-  ?>
-  </td>
-
+  
+  
   </tr>
 <?php
 }
