@@ -504,13 +504,14 @@ $result = $conn->query($sql);
   </tr>
   <?php
 $v1=$_GET['m'];
-echo $v1;
+
 
 $stmt1 = $DB_con->prepare("SELECT * FROM alumno WHERE matricula=:user_id");
 $stmt1->execute(array(":user_id"=>$v1));
 while($alu=$stmt1->fetch(PDO::FETCH_ASSOC)){
   ?>
   <tr>
+<td>
 <?php
 echo $alu['password'];
   ?>
