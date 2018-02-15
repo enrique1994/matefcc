@@ -365,14 +365,7 @@ for ($i=0; $i <3 ; $i++) {
       $stmt3->bindParam(":num",$i+1);
       $stmt3->bindParam(":id_materia",$nrc);
       $stmt3->execute(); 
-        if()
-        {
-        //  echo " curso registrado";
-        }
-        else
-        {
-         // echo "No se puede ejecutar !";
-        }
+
 
       $stmt2 = $this->db->prepare("select max(id_parcial) from parcial");
       $stmt2->execute();
