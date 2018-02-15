@@ -364,11 +364,11 @@ for ($i=0; $i <3 ; $i++) {
       $maxpar=$stmt2->fetch();
       $maxpar=$maxpar[0]+1;
 
-
+      $criterio="Examen";
       $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
       $stmt3->bindParam(":id_materia",$nrc);
       $stmt3->bindParam(":id_profesor",$id);
-      $stmt3->bindParam(":descripcion","Examen");
+      $stmt3->bindParam(":descripcion",$criterio);
       $stmt3->bindParam(":parcial",$maxpar);
         if($stmt3->execute())
         {
@@ -378,11 +378,11 @@ for ($i=0; $i <3 ; $i++) {
         {
          // echo "No se puede ejecutar !";
         }
-
+        $criterio="Ejercicio";
       $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
       $stmt3->bindParam(":id_materia",$nrc);
       $stmt3->bindParam(":id_profesor",$id);
-      $stmt3->bindParam(":descripcion","Ejercicio");
+      $stmt3->bindParam(":descripcion",$criterio);
       $stmt3->bindParam(":parcial",$maxpar);
         if($stmt3->execute())
         {
