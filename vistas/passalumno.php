@@ -497,10 +497,7 @@ $result = $conn->query($sql);
 <h1>Lista de materias del estudiante</h1>
 <table class="table table-hover">
   <tr>
-    <th>Matricula</th>
-    <th>Nombre</th>
-    <th>Paterno</th>
-    <th>Materno</th>
+    <th>Password</th>
   </tr>
   <?php
 $v1=$_GET['m'];
