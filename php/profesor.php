@@ -344,6 +344,20 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
          // echo "No se puede ejecutar !";
         }
      
+      $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
+      $stmt3->bindParam(":num",$i+1);
+      $stmt3->bindParam(":id_materia",$nrc);
+        if($stmt3->execute())
+        {
+        //  echo " curso registrado";
+        }
+        else
+        {
+         // echo "No se puede ejecutar !";
+        }
+
+
+
 for ($i=0; $i <3 ; $i++) { 
   # code...
 
