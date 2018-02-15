@@ -504,16 +504,14 @@ $result = $conn->query($sql);
   </tr>
   <?php
 $v1=$_GET['m'];
-
+echo $v1;
 
 $stmt1 = $DB_con->prepare("SELECT * FROM alumno WHERE id_curso=:user_id");
 $stmt1->execute(array(":user_id"=>$v1));
 while($alu=$stmt1->fetch(PDO::FETCH_ASSOC)){
   ?>
   <tr>
-  <td><a href="passalumno.php?m=<?php echo $alu['matricula'] ?>"> <?php echo $alu['matricula'] ?></a>
-
-  <td><?php
+<?php
 echo $alu['password'];
   ?>
   </td>
