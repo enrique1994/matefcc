@@ -506,13 +506,14 @@ $result = $conn->query($sql);
                   <th>Nombre</th>
                   <th>Sección</th>
                   <th>Periodo</th>
-                  <th>Editar</th>
-                  <th>Eliminar</th>
+
                   <th># de Alumnos</th>
                   <th>Acciones sobre alumnos</th>
                   <th>Criterios de evaluación</th>
-                  <th></th>
+                  <th>Calificacion final</th>
                   <th>Anuncios</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
                 </tr>
                <tr>
 <?php
@@ -548,8 +549,6 @@ $row3 = $result3->fetch_array();
 	echo $row3[1].$row3[2]; ?>
 	</td>
 
-	<td><a href="editar_curso.php?a=<?php echo $row[0] ?>" class="glyphicon glyphicon-edit"></a></td>
-    <td><a href="../php/eliminar_curso.php?a=<?php echo $row[0] ?>" class="glyphicon glyphicon-remove"></a></td>
     <td><?php  
 	$sql1 = "SELECT COUNT(*) FROM inscripcion where id_curso=$row[0]";
 $result1 = $conn->query($sql1);
@@ -566,6 +565,10 @@ $row1 = $result1->fetch_array();
 <td><a href="criterios.php?a=<?php echo $row[0] ?>">Criterios</a></td>
 <td><a href="calificacion_final.php?a=<?php echo $row[0] ?>">Calificacion final</a></td>
 <td><a href="mis_anuncios.php?id_curso=<?php echo $row[0] ?>">Ver anuncios</a></td>
+  <td><a href="editar_curso.php?a=<?php echo $row[0] ?>" class="glyphicon glyphicon-edit"></a></td>
+    <td><a href="../php/eliminar_curso.php?a=<?php echo $row[0] ?>" class="glyphicon glyphicon-remove"></a></td>
+
+
 </tr>
 
 <?php
