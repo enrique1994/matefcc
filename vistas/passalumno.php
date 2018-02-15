@@ -477,24 +477,17 @@ $result = $conn->query($sql);
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Cursos Inscritos</h3>
+              
               <br>
-                <a href="agregar_curso.php">
-                 <i class="glyphicon glyphicon-plus"></i> <span>Añadir Curso</span>
-                    </a>
+                
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
                 </div>
               </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-<h1>Lista de materias del estudiante</h1>
+<h1>Passwor del estudiante</h1>
 <table class="table table-hover">
   <tr>
     <th>Password</th>
