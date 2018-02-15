@@ -487,7 +487,7 @@ $result = $conn->query($sql);
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-<h1>Passwor del estudiante</h1>
+<h1>Password del estudiante</h1>
 <table class="table table-hover">
   <tr>
     <th>Password</th>
