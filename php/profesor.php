@@ -364,7 +364,8 @@ for ($i=0; $i <3 ; $i++) {
       $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
       $stmt3->bindParam(":num",$i+1);
       $stmt3->bindParam(":id_materia",$nrc);
-        if($stmt3->execute())
+      $stmt3->execute(); 
+        if()
         {
         //  echo " curso registrado";
         }
@@ -384,28 +385,15 @@ for ($i=0; $i <3 ; $i++) {
       $stmt3->bindParam(":id_profesor",$id);
       $stmt3->bindParam(":descripcion",$criterio);
       $stmt3->bindParam(":parcial",$maxpar);
-        if($stmt3->execute())
-        {
-        //  echo " curso registrado";
-        }
-        else
-        {
-         // echo "No se puede ejecutar !";
-        }
+      $stmt3->execute();
         $criterio="Ejercicio";
       $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
       $stmt3->bindParam(":id_materia",$nrc);
       $stmt3->bindParam(":id_profesor",$id);
       $stmt3->bindParam(":descripcion",$criterio);
       $stmt3->bindParam(":parcial",$maxpar);
-        if($stmt3->execute())
-        {
-        //  echo " curso registrado";
-        }
-        else
-        {
-         // echo "No se puede ejecutar !";
-        }
+      $stmt3->execute();  
+
 
 
 
