@@ -362,6 +362,7 @@ for ($i=0; $i <3 ; $i++) {
       $stmt3->bindParam(":descripcion",$criterio);
       $stmt3->bindParam(":parcial",$maxpar);
       $stmt3->execute();
+      
         $criterio="Ejercicio";
       $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
       $stmt3->bindParam(":id_materia",$nrc);
@@ -369,10 +370,6 @@ for ($i=0; $i <3 ; $i++) {
       $stmt3->bindParam(":descripcion",$criterio);
       $stmt3->bindParam(":parcial",$maxpar);
       $stmt3->execute();  
-
-
-
-
 }
     
 
