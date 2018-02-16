@@ -337,9 +337,7 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
       $stmt3->bindParam(":periodo",$maxper);
       $stmt3->execute();
      
-      $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(1,:id_materia,0)");
-      $stmt3->bindParam(":id_materia",$nrc);
-      $stmt3->execute();
+
 
 
 
@@ -352,7 +350,7 @@ for ($i=0; $i <3 ; $i++) {
       $stmt3->execute(); 
 
 
-      $stmt2 = $this->db->prepare("select max(id_parcial) from parcial");
+      $stmt2 = $this->db->prepare("select max(idparcial) from parcial");
       $stmt2->execute();
       $maxpar=$stmt2->fetch();
       $maxpar=$maxpar[0]+1;
