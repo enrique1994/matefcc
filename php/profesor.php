@@ -341,7 +341,7 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
 
 
 
-for ($i=0; $i <3 ; $i++) { 
+for ($i=0; $i <2 ; $i++) { 
   # code...
 
       $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
