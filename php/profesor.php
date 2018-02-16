@@ -337,10 +337,94 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
       $stmt3->bindParam(":periodo",$maxper);
       $stmt3->execute();
      
+//1
+
+     $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
+      $stmt3->bindParam(":num",$i+1);
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->execute(); 
+
+      $stmt2 = $this->db->prepare("select max(idparcial) from parcial");
+      $stmt2->execute();
+      $maxpar=$stmt2->fetch();
+      $maxpar=$maxpar[0]+1;
+
+      $criterio="Examen";
+      $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->bindParam(":id_profesor",$id);
+      $stmt3->bindParam(":descripcion",$criterio);
+      $stmt3->bindParam(":parcial",$maxpar);
+      $stmt3->execute();
+      
+        $criterio="Ejercicio";
+      $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->bindParam(":id_profesor",$id);
+      $stmt3->bindParam(":descripcion",$criterio);
+      $stmt3->bindParam(":parcial",$maxpar);
+      $stmt3->execute();  
+
+//2
+
+      $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
+      $stmt3->bindParam(":num",$i+1);
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->execute(); 
 
 
+      $stmt2 = $this->db->prepare("select max(idparcial) from parcial");
+      $stmt2->execute();
+      $maxpar=$stmt2->fetch();
+      $maxpar=$maxpar[0]+1;
+
+      $criterio="Examen";
+      $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->bindParam(":id_profesor",$id);
+      $stmt3->bindParam(":descripcion",$criterio);
+      $stmt3->bindParam(":parcial",$maxpar);
+      $stmt3->execute();
+      
+        $criterio="Ejercicio";
+      $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->bindParam(":id_profesor",$id);
+      $stmt3->bindParam(":descripcion",$criterio);
+      $stmt3->bindParam(":parcial",$maxpar);
+      $stmt3->execute(); 
+
+//3
 
 
+      $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
+      $stmt3->bindParam(":num",$i+1);
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->execute(); 
+
+
+      $stmt2 = $this->db->prepare("select max(idparcial) from parcial");
+      $stmt2->execute();
+      $maxpar=$stmt2->fetch();
+      $maxpar=$maxpar[0]+1;
+
+      $criterio="Examen";
+      $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->bindParam(":id_profesor",$id);
+      $stmt3->bindParam(":descripcion",$criterio);
+      $stmt3->bindParam(":parcial",$maxpar);
+      $stmt3->execute();
+      
+        $criterio="Ejercicio";
+      $stmt3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
+      $stmt3->bindParam(":id_materia",$nrc);
+      $stmt3->bindParam(":id_profesor",$id);
+      $stmt3->bindParam(":descripcion",$criterio);
+      $stmt3->bindParam(":parcial",$maxpar);
+      $stmt3->execute(); 
+
+/*
 for ($i=0; $i <=2 ; $i++) { 
   # code...
 
@@ -370,7 +454,7 @@ for ($i=0; $i <=2 ; $i++) {
       $stmt3->bindParam(":descripcion",$criterio);
       $stmt3->bindParam(":parcial",$maxpar);
       $stmt3->execute();  
-}
+}*/
     
 
 
