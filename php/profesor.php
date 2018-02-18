@@ -339,90 +339,12 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
      
 //1
 
-     $stmtf1 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
-      $stmf1->bindParam(":num",$i+1);
+     $stmtf1 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia)");
+      $stmf1->bindParam(":num",1);
       $stmtf1->bindParam(":id_materia",$nrc);
       $stmtf1->execute(); 
 
-      $stmtf2 = $this->db->prepare("select max(idparcial) from parcial");
-      $stmtf2->execute();
-      $maxpar=$stmtf2->fetch();
-      $maxpar=$maxpar[0]+1;
 
-      $criterio="Examen";
-      $stmtf3 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
-      $stmtf3->bindParam(":id_materia",$nrc);
-      $stmtf3->bindParam(":id_profesor",$id);
-      $stmtf3->bindParam(":descripcion",$criterio);
-      $stmtf3->bindParam(":parcial",$maxpar);
-      $stmtf3->execute();
-      
-        $criterio="Ejercicio";
-      $stmtf4 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
-      $stmtf4->bindParam(":id_materia",$nrc);
-      $stmtf4->bindParam(":id_profesor",$id);
-      $stmtf4->bindParam(":descripcion",$criterio);
-      $stmtf4->bindParam(":parcial",$maxpar);
-      $stmtf4->execute();  
-
-//2
-
-      $stmtf5 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
-      $stmtf5->bindParam(":num",$i+1);
-      $stmtf5->bindParam(":id_materia",$nrc);
-      $stmtf5->execute(); 
-
-
-      $stmtf6 = $this->db->prepare("select max(idparcial) from parcial");
-      $stmtf6->execute();
-      $maxpar=$stmtf6->fetch();
-      $maxpar=$maxpar[0]+1;
-
-      $criterio="Examen";
-      $stmtf7 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
-      $stmtf7->bindParam(":id_materia",$nrc);
-      $stmtf7->bindParam(":id_profesor",$id);
-      $stmtf7->bindParam(":descripcion",$criterio);
-      $stmtf7->bindParam(":parcial",$maxpar);
-      $stmtf7->execute();
-      
-        $criterio="Ejercicio";
-      $stmtf8 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
-      $stmtf8->bindParam(":id_materia",$nrc);
-      $stmtf8->bindParam(":id_profesor",$id);
-      $stmtf8->bindParam(":descripcion",$criterio);
-      $stmtf8->bindParam(":parcial",$maxpar);
-      $stmtf8->execute(); 
-
-//3
-
-
-      $stmtf9 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,0)");
-      $stmtf9->bindParam(":num",$i+1);
-      $stmtf9->bindParam(":id_materia",$nrc);
-      $stmtf9->execute(); 
-
-
-      $stmtf10 = $this->db->prepare("select max(idparcial) from parcial");
-      $stmtf10->execute();
-      $maxpar=$stmtf10->fetch();
-      $maxpar=$maxpar[0]+1;
-
-      $criterio="Examen";
-      $stmtf11 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
-      $stmtf11->bindParam(":id_materia",$nrc);
-      $stmtf11->bindParam(":id_profesor",$id);
-      $stmtf11->bindParam(":descripcion",$criterio);
-      $stmtf11->bindParam(":parcial",$maxpar);
-      $stmtf11->execute();
-      
-        $criterio="Ejercicio";
-      $stmtf12 = $this->db->prepare("INSERT INTO criterios_evaluacion(nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri) VALUES(:id_materia,:id_profesor,:descripcion,50,2,:parcial)");
-      $stmtf12->bindParam(":id_materia",$nrc);
-      $stmtf12->bindParam(":id_profesor",$id);
-      $stmtf12->bindParam(":descripcion",$criterio);
-      $stmtf12->bindParam(":parcial",$maxpar);
-      $stmtf12->execute(); 
 
 /*
 for ($i=0; $i <=2 ; $i++) { 
@@ -653,15 +575,6 @@ for ($i=0; $i <=2 ; $i++) {
      }
      else
           echo "empalmado"; //se empalma
-
-
-
-
-
-
-     
-
- 
 
 
 echo '<script language="javascript">window.location.href="../vistas/cursos.php" ;</script>'; 
