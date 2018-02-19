@@ -17,10 +17,13 @@ $nrc= $_POST['nrc'];
        if(!mysqli_query($con,"INSERT INTO inscripcion (id_curso, id_alumno) VALUES ($nrc,'".$item['matricula']."')")){
            $error = true; //error
        }
-       if(!mysqli_query($con,"INSERT INTO parcial2 (idCursoParcial, matricula_alumno) VALUES ($nrc,'".$item['matricula']."')")){
+       for ($i=1; $i <=3 ; $i++) { 
+         # code...
+       
+       if(!mysqli_query($con,"INSERT INTO parcial2 (idCursoParcial, matricula_alumno) VALUES ($nrc,$i,'".$item['matricula']."')")){
            $error = true; //error
        }
-
+}
 
     }
     if($error){
