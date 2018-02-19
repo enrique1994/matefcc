@@ -327,10 +327,7 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
 
 
 
-     $stmtf1 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia)");
-      $stmf1->bindParam(":num",100);
-      $stmtf1->bindParam(":id_materia",$nrc);
-      $stmtf1->execute(); 
+
 
         
       $stmt3 = $this->db->prepare("INSERT INTO curso(nrc,id_materia,seccion,id_profesor,periodo) VALUES(:nrc,:id_materia,:seccion,:id_profesor,:periodo)");
@@ -340,6 +337,14 @@ public function registrar($id,$nombre,$paterno,$materno,$correo,$password,$num_c
       $stmt3->bindParam(":id_profesor",$id);
       $stmt3->bindParam(":periodo",$maxper);
       $stmt3->execute();
+
+      $stmt3 = $this->db->prepare("INSERT INTO parcial(num_p,id_curso_parcial,calif) VALUES(:num,:id_materia,:seccion)");
+      $stmt3->bindParam(":num",$nrc);
+      $stmt3->bindParam(":id_materia",$materia);
+      $stmt3->bindParam(":seccion",$maxsec);
+
+      $stmt3->execute();
+
      
 //1
 
