@@ -8,19 +8,32 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 $nrc= $_POST['nrc'];
+$sql = "SELECT id_profesor FROM curso where nrc=$nrc";
+$result = mysqli_query($conn, $sql);
+$prof = mysqli_fetch_assoc($result)
+
 	if(isset($_POST['matriculas'])) {
     $json = $_POST['matriculas'];
    // print_r($json);
    $error = false;
 
       foreach($json as $item) {
+
+
        if(!mysqli_query($con,"INSERT INTO inscripcion (id_curso, id_alumno) VALUES ($nrc,'".$item['matricula']."')")){
            $error = true; //error
        }
        for ($i=1; $i <=3 ; $i++) { 
          # code...
-       
-       if(!mysqli_query($con,"INSERT INTO parcial2 (idCursoParcial, matricula_alumno) VALUES ($nrc,$i,'".$item['matricula']."')")){
+       if(!mysqli_query($con,"INSERT INTO parcial (id_curso_parcial,num_p,matricula) VALUES ($nrc,$i,'".$item['matricula']."')")){
+           $error = true; //error
+       }
+       $crit="Examen";
+       if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,'".$prof['id_profesor']."',$crit,50,1,$i)")){
+           $error = true; //error
+       }
+       $crit="Ejercicio";
+       if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,'".$prof['id_profesor']."',$crit,50,1,$i)")){
            $error = true; //error
        }
 }
