@@ -9,7 +9,7 @@ if (mysqli_connect_errno())
   }
 $nrc= $_POST['nrc'];
 $sql = "SELECT id_profesor FROM curso where nrc=$nrc";
-$result = ($con, $sql);
+$result = mysqli_query($con, $sql);
 $prof = mysqli_fetch_assoc($result);
 
 	if(isset($_POST['matriculas'])) {
