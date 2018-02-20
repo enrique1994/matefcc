@@ -35,15 +35,15 @@ $prof = mysqli_fetch_assoc($result);
        else{
         echo "Si se pudo";
        }
-       /*for ($j=0; $j <10 ; $j++) { 
+  /*     for ($j=0; $j <10 ; $j++) { 
          # code...
        $crit="Ejercicio";
        if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,'".$prof['id_profesor']."',$crit,50,1,$i)")){
            $error = true; //error
        }
-       */
-       }
 
+       }
+*/
 }
 
     }
