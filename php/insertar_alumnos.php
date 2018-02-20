@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 $nrc= $_POST['nrc'];
-$sql = "SELECT id_profesor FROM curso where nrc=$nrc";
+$sql = "SELECT * FROM curso where nrc=$nrc";
 $result = mysqli_query($con, $sql);
 $prof = mysqli_fetch_assoc($result);
 
