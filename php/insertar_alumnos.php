@@ -29,14 +29,14 @@ $prof = mysqli_fetch_assoc($result);
            $error = true; //error
        }
        print $prof['id_profesor'];
-      /* $crit="Examen";
-       if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,'201221663',$crit,'50','1','$i')")){
+      $crit="Examen";
+       if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,".$prof['id_profesor'].",$crit,'50','1','$i')")){
            $error = true; //error
        }
        else{
         echo "Si se pudo";
        }
-       */
+       
   /*     for ($j=0; $j <10 ; $j++) { 
          # code...
        $crit="Ejercicio";
