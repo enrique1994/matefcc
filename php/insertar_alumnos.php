@@ -9,8 +9,8 @@ if (mysqli_connect_errno())
   }
 $nrc= $_POST['nrc'];
 $sql = "SELECT id_profesor FROM curso where nrc=$nrc";
-$result = mysqli_query($con, $sql);
-$prof = mysqli_fetch_assoc($result)
+$result = ($con, $sql);
+$prof = mysqli_fetch_assoc($result);
 
 	if(isset($_POST['matriculas'])) {
     $json = $_POST['matriculas'];
@@ -32,10 +32,14 @@ $prof = mysqli_fetch_assoc($result)
        if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,".$prof['id_profesor'].",$crit,50,1,$i)")){
            $error = true; //error
        }
+       for ($i=0; $i <10 ; $i++) { 
+         # code...
        $crit="Ejercicio";
        if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,".$prof['id_profesor'].",$crit,50,1,$i)")){
            $error = true; //error
        }
+       }
+
 }
 
     }
