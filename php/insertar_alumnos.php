@@ -28,6 +28,7 @@ $prof = mysqli_fetch_assoc($result);
        if(!mysqli_query($con,"INSERT INTO parcial (id_curso_parcial,num_p,matricula) VALUES ($nrc,$i,'".$item['matricula']."')")){
            $error = true; //error
        }
+       print $prof['id_profesor'];
       /* $crit="Examen";
        if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,'201221663',$crit,'50','1','$i')")){
            $error = true; //error
