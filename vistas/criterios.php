@@ -9,8 +9,8 @@ $stmt = $DB_con->prepare("SELECT * FROM profesor WHERE id=:user_id");
 $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 $nrc=$_GET['a'];
-$conteo_parcial=1;
-$conteo_ejer=1;
+$conteo_parcial=0;
+
 
 //echo "<h1>".$nrc."</h1>";
 
@@ -513,7 +513,7 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
   echo "<td>Eliminar</td>";
   echo "</tr>";
   }
-  $conteo_parcial++;
+
 }
 else
 {
