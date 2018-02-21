@@ -503,7 +503,6 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
   echo "<td>Examen</td>";
   $var=string($cri['id']).string(0);
   echo "<td><a href=num_eje.php?id=$var>Alta</a></td>";
-
   echo "<td>Eliminar</td>";
   echo "</tr>";
 //Renglones ejercicios
@@ -516,7 +515,6 @@ $var=string($cri['id']).string($i);
   echo "<td>Eliminar</td>";
   echo "</tr>";
   }
-
 }
 else
 {
