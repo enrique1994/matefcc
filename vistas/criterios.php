@@ -495,7 +495,7 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
 //Renglon Parcial #
   echo "<tr>";
   echo "<td>";
-  echo "Parcial ".$cri['id_parcial_cri']."</td>";
+  echo "Parcial ".$conteo_parcial."</td>";
   echo "</tr>";
 //Renglon examen
   echo "<tr>";
