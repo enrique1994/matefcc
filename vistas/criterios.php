@@ -518,6 +518,7 @@ else
 {
   $conteo_parcial++;
 }
+}
 ?>
 
 
