@@ -501,10 +501,7 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
   echo "<tr>";
   echo "<td></td>";
   echo "<td>Examen</td>";
-$stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE nrc_curso=:nrc_cri");
-$stmt2->execute(array(":nrc_cri"=>$cri['id']));
-  $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
-  echo "<td><a href=num_eje.php?id=$subcri['id']>Alta</a></td>";
+  echo "<td><a href=num_eje.php?id=$subcri[id]-0>Alta</a></td>";
 
   echo "<td>Eliminar</td>";
   echo "</tr>";
@@ -513,13 +510,7 @@ $stmt2->execute(array(":nrc_cri"=>$cri['id']));
     echo "<tr>";
   echo "<td></td>";
   echo "<td>Ejercicio".$i."</td>";
-$stmt1 = $DB_con->prepare("SELECT * FROM evaluacion WHERE nrc_curso=:nrc_cri");
-$stmt1->execute(array(":nrc_cri"=>$cri['id']));
-  for ($j=0; $j <$i ; $i++) { 
-    $subcri=$stmt1->fetch(PDO::FETCH_ASSOC);
-    # code...
-  }
-  echo "<td><a href=num_eje.php?id=$subcri['id']>Alta</a></td>";
+  echo "<td><a href=num_eje.php?id=$subcri[id]-$id>Alta</a></td>";
   echo "<td>Eliminar</td>";
   echo "</tr>";
   }
