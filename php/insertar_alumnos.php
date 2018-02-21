@@ -32,20 +32,30 @@ $prof = mysqli_fetch_assoc($result);
       $crit="Examen";
        if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,".$prof['id_profesor'].",'Examen','50','1','$i')")){
            $error = true; //error
+       }else{
+        $last_id = $con->insert_id;
+      }
+
+             if(!mysqli_query($con,"INSERT INTO evaluacion (calif,nrc_curso,id_criterios,id_alumno,maximo_ejer)  VALUES  ('0',$nrc,$last_id,'".$item['matricula']."','10')")){
+           $error = true; //error
        }
-       
 
 
 
        if(!mysqli_query($con,"INSERT INTO criterios_evaluacion (nrc_curso,id_profesor,descripcion,porcentaje,evaluado,id_parcial_cri)  VALUES  ($nrc,".$prof['id_profesor'].",'Ejercicio','50','1','$i')")){
            $error = true; //error
-       }
+       }else{
+        $last_id = $con->insert_id;
+      }
 
 
 
        for ($j=0; $j <10 ; $j++) { 
          # code...
        $crit="Ejercicio";
+                    if(!mysqli_query($con,"INSERT INTO evaluacion (calif,nrc_curso,id_criterios,id_alumno,maximo_ejer)  VALUES  ('0',$nrc,$last_id,'".$item['matricula']."','5')")){
+           $error = true; //error
+       }
 
        }
 
