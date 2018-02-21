@@ -511,8 +511,9 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
     echo "<tr>";
   echo "<td></td>";
   echo "<td>Ejercicio".$i."</td>";
+  echo "<td>";
 $var=string($cri['id']).string($i);
-  echo "<td><a href=num_eje.php?id=$var>Alta</a></td>";
+  echo "<a href=num_eje.php?id=$var>Alta</a></td>";
   echo "<td>Eliminar</td>";
   echo "</tr>";
   }
