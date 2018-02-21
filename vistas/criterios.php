@@ -9,6 +9,9 @@ $stmt = $DB_con->prepare("SELECT * FROM profesor WHERE id=:user_id");
 $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 $nrc=$_GET['a'];
+$conteo_parcial=1;
+$conteo_ejer=1;
+
 //echo "<h1>".$nrc."</h1>";
 
 $stmt1 = $DB_con->prepare("SELECT * FROM criterios_evaluacion WHERE nrc_curso=:nrc_curso");
@@ -466,7 +469,7 @@ $stmt1->execute(array(":nrc_curso"=>$nrc));
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Criterio de evaluación</h3>
+              <h3 class="box-title">Parciales de evaluacion</h3>
               <br>
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -482,40 +485,41 @@ $stmt1->execute(array(":nrc_curso"=>$nrc));
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th>Descripción</th>
-                  <th>Porcentaje</th>
-                  <th>Definir criterio</th>
+                  <th>Parcial</th>
+                  <th>Descripcion</th>
+                  <th>Alta</th>
                   <th>Eliminar</th>
                 </tr>
-                	<?php while ($cri=$stmt1->fetch(PDO::FETCH_ASSOC)) {?>
-               <tr>
-<td>
- 		<?php      echo $cri['descripcion']; ?>
-         
- 	</td>
-
- <td>
- 		<?php echo $cri['porcentaje']; ?>
- 	</td>
-
-<td>
-<!--<a href="../php/anadir_criterio.php?id=
-  <?php //echo $cri['id'] ?>">Anadir</a> 	-->	
-<?php
-if($cri['evaluado']==1){
-echo "<a href=num_eje.php?id=$cri[id]>Anadir</a>";  
+                	<?php while ($cri=$stmt1->fetch(PDO::FETCH_ASSOC)) {
+if ($cri['id_parcial_cri']==$conteo_parcial) {
+//Renglon Parcial #
+  echo "<tr>";
+  echo "<td>";
+  echo "Parcial ".$cri['id_parcial_cri']."</td>";
+  echo "</tr>";
+//Renglon examen
+  echo "<tr>";
+  echo "<td></td>";
+  echo "<td>Examen</td>";
+  echo "<td>Alta</td>";
+  echo "<td>Eliminar</td>";
+  echo "</tr>";
+//Renglones ejercicios
+  for ($i=1; $i <=10 ; $i++) { 
+    echo "<tr>";
+  echo "<td></td>";
+  echo "<td>Ejercicio".$i."</td>";
+  echo "<td>Alta</td>";
+  echo "<td>Eliminar</td>";
+  echo "</tr>";
+  }
 }
-else{
- echo "<a href=../php/anadir_criterio.php?id=$cri[id]>Anadir</a>";
+else
+{
+  $conteo_parcial++;
 }
 ?>
-<!--<a href="anadir_criterio.php?id=<?php //echo $cri['id'] ?>">Anadir</a>--> 
- 	</td>
-     	<td>
- 		 <a href="../php/eliminar_criterio.php?nrc=<?php echo $cri['id'] ?>">eliminar</a>
- 	</td>
-</tr>
-<?php } ?>
+
 
               </table>
             </div>
