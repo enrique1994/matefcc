@@ -501,7 +501,7 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
   echo "<tr>";
   echo "<td></td>";
   echo "<td>Examen</td>";
-  echo "<td><a href=num_eje.php?id=$subcri[id]-0>Alta</a></td>";
+  echo "<td><a href=num_eje.php?."id=$subcri['id']_0.">Alta</a></td>";
 
   echo "<td>Eliminar</td>";
   echo "</tr>";
@@ -510,7 +510,7 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
     echo "<tr>";
   echo "<td></td>";
   echo "<td>Ejercicio".$i."</td>";
-  echo "<td><a href=num_eje.php?id=$subcri[id]-$id>Alta</a></td>";
+  echo "<td><a href=num_eje.php?id=".$subcri[id]_$id.">Alta</a></td>";
   echo "<td>Eliminar</td>";
   echo "</tr>";
   }
