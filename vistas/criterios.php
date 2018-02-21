@@ -513,6 +513,7 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
   echo "<td>Eliminar</td>";
   echo "</tr>";
   }
+  $conteo_parcial++;
 }
 else
 {
