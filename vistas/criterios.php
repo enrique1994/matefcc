@@ -503,10 +503,11 @@ $stmt3->execute(array(":cri"=>$cri['id']));
 while ($crieje=$stmt3->fetch(PDO::FETCH_ASSOC)){
   echo "<tr>";
   echo "<td></td>";
-  if ($crieje != null) {
-   echo "<td>".$crieje['titulo']."<td>"
-  }else
+  if ($crieje['titulo'] != null) {
+   echo "<td>".$crieje['titulo']."<td>";
+  }else{
   echo "<td>Ejercicio".$i."</td>";
+  }
   echo "<td>";
 $var=$crieje['id'];
   echo "<a href=num_eje.php?id=$var>Editar</a></td>";
@@ -527,14 +528,16 @@ else
 //Renglon examen
   echo "<tr>";
   echo "<td></td>";
-  if ($crieje != null) {
-   echo "<td>".$crieje['titulo']."<td>"
-  }else
-  echo "<td>Examen".$i."</td>";
   echo "<td>";
 $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
 $stmt2->execute(array(":cri"=>$cri['id']));
 $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
+  if ($sub['titulo'] != null) {
+   echo "<td>".$crieje['titulo']."<td>";
+  }else
+  echo "<td>Examen".$i."</td>";
+ 
+
   $var=$subcri['id'];
   echo "<a href=num_eje.php?id=$var>Editar</a></td>";
   echo "<td>";
