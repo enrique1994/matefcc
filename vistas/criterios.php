@@ -496,16 +496,19 @@ $stmt1->execute(array(":nrc_curso"=>$nrc));
 if ($cri['id_parcial_cri']==$conteo_parcial) {
 //Renglon Parcial #
 //Renglones ejercicios
-  for ($i=1; $i <=10 ; $i++) { 
-    echo "<tr>";
+   
+$stmt3 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
+$stmt3->execute(array(":cri"=>$cri['id']));
+while ($crieje=$stmt3->fetch(PDO::FETCH_ASSOC)){
+  echo "<tr>";
   echo "<td></td>";
   echo "<td>Ejercicio".$i."</td>";
   echo "<td>";
-$var=(string)$cri['id'].'-'.(string)$i;
+$var=$crieje['id'];
   echo "<a href=num_eje.php?id=$var>Alta</a></td>";
   echo "<td>Eliminar</td>";
-  echo "</tr>";
-  }
+  echo "</tr>";  
+}
 }
 else
 {
@@ -519,10 +522,10 @@ else
   echo "<td></td>";
   echo "<td>Examen</td>";
   echo "<td>";
-  $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
+$stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
 $stmt2->execute(array(":cri"=>$cri['id']));
 $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
-  $var=(string)$subcri['id'].'-'.(string)0;
+  $var=$subcri['id'];
   echo "<a href=num_eje.php?id=$var>Alta</a></td>";
   echo "<td>Eliminar</td>";
   echo "</tr>";
