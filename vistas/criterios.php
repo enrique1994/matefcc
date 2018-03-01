@@ -527,7 +527,6 @@ else
   echo "</tr>";
 //Renglon examen
   echo "<tr>";
-  echo "<td></td>";
   echo "<td>";
 $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
 $stmt2->execute(array(":cri"=>$cri['id']));
