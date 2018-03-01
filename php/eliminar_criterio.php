@@ -8,11 +8,11 @@ $user_id = $_SESSION['user_session'];
 $stmt = $DB_con->prepare("SELECT * FROM profesor WHERE id=:user_id");
 $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-$nrc=$_GET['nrc'];
+$eva=$_GET['var'];
 
 
-      $stmt = $DB_con->prepare("DELETE from criterios_evaluacion where id=:nrc_curso");
-      $stmt->bindParam(":nrc_curso",$nrc);
+      $stmt = $DB_con->prepare("DELETE from evaluacion where id=:criterio");
+      $stmt->bindParam(":criterio",$eva);
 
       
         if($stmt->execute())
