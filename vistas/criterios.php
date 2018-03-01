@@ -519,7 +519,7 @@ else
   echo "<td></td>";
   echo "<td>Examen</td>";
   echo "<td>";
-  $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:crite");
+  $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
 $stmt2->execute(array(":cri"=>$cri['id']));
 $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
   $var=(string)$subcri['id'].'-'.(string)0;
