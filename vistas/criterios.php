@@ -492,23 +492,10 @@ $stmt1->execute(array(":nrc_curso"=>$nrc));
                 </tr>
 
                 	<?php while ($cri=$stmt1->fetch(PDO::FETCH_ASSOC)) {
- echo "<tr>";
-  echo "<td>";
-  echo "Parcial ".$conteo_parcial."</td>";
-  echo "</tr>";
-//Renglon examen
-  echo "<tr>";
-  echo "<td></td>";
-  echo "<td>Examen</td>";
-  echo "<td>";
-  $var=(string)$cri['id'].'-'.(string)0;
-  echo "<a href=num_eje.php?id=$var>Alta</a></td>";
-  echo "<td>Eliminar</td>";
-  echo "</tr>";
 
 if ($cri['id_parcial_cri']==$conteo_parcial) {
 //Renglon Parcial #
- //Renglones ejercicios
+//Renglones ejercicios
   for ($i=1; $i <=10 ; $i++) { 
     echo "<tr>";
   echo "<td></td>";
@@ -523,6 +510,20 @@ $var=(string)$cri['id'].'-'.(string)$i;
 else
 {
   $conteo_parcial++;
+  echo "<tr>";
+  echo "<td>";
+  echo "Parcial ".$conteo_parcial."</td>";
+  echo "</tr>";
+//Renglon examen
+  echo "<tr>";
+  echo "<td></td>";
+  echo "<td>Examen</td>";
+  echo "<td>";
+  $var=(string)$cri['id'].'-'.(string)0;
+  echo "<a href=num_eje.php?id=$var>Alta</a></td>";
+  echo "<td>Eliminar</td>";
+  echo "</tr>";
+
 }
 }
 ?>
