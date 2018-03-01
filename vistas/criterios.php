@@ -528,7 +528,8 @@ $stmt2->execute(array(":cri"=>$cri['id']));
 $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
   $var=$subcri['id'];
   echo "<a href=num_eje.php?id=$var>Alta</a></td>";
-  echo "<td>Eliminar</td>";
+  echo "<td>";
+  echo "<a href=../php/eliminar_criterio.php?id=$var>Eliminar</a></td>";
   echo "</tr>";
 
 }
