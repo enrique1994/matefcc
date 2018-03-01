@@ -537,7 +537,7 @@ $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
   }else
   echo "<td>Examen".$i."</td>";
  
-
+  echo "<td>";
   $var=$subcri['id'];
   echo "<a href=num_eje.php?id=$var>Editar</a></td>";
   echo "<td>";
