@@ -8,12 +8,9 @@ $user_id = $_SESSION['user_session'];
 $stmt = $DB_con->prepare("SELECT * FROM profesor WHERE id=:user_id");
 $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-$id=$_POST['id'];
-
-
 
       $stmt3 = $DB_con->prepare("UPDATE  evaluacion SET maximo_ejer=:ej, titulo=:titulo where id=:id");
-      $stmt3->bindParam(":id",$id);
+      $stmt3->bindParam(":id",$$_POST['id']);
       $stmt3->bindParam(":titulo",$_POST['titulo']);
       $stmt3->bindParam(":ej",$_POST['porcentaje']);
         if($stmt3->execute())
