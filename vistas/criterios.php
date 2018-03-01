@@ -490,10 +490,9 @@ $stmt1->execute(array(":nrc_curso"=>$nrc));
                   <th>Alta</th>
                   <th>Eliminar</th>
                 </tr>
+                
                 	<?php while ($cri=$stmt1->fetch(PDO::FETCH_ASSOC)) {
-if ($cri['id_parcial_cri']==$conteo_parcial) {
-//Renglon Parcial #
-  echo "<tr>";
+ echo "<tr>";
   echo "<td>";
   echo "Parcial ".$conteo_parcial."</td>";
   echo "</tr>";
@@ -506,7 +505,10 @@ if ($cri['id_parcial_cri']==$conteo_parcial) {
   echo "<a href=num_eje.php?id=$var>Alta</a></td>";
   echo "<td>Eliminar</td>";
   echo "</tr>";
-//Renglones ejercicios
+/
+if ($cri['id_parcial_cri']==$conteo_parcial) {
+//Renglon Parcial #
+ /Renglones ejercicios
   for ($i=1; $i <=10 ; $i++) { 
     echo "<tr>";
   echo "<td></td>";
