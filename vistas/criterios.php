@@ -487,6 +487,7 @@ $stmt1->execute(array(":nrc_curso"=>$nrc));
                 <tr>
                   <th>Parcial</th>
                   <th>Descripcion</th>
+                  <th>Editar</th>
                   <th>Alta</th>
                   <th>Eliminar</th>
                 </tr>
@@ -505,6 +506,8 @@ while ($crieje=$stmt3->fetch(PDO::FETCH_ASSOC)){
   echo "<td>Ejercicio".$i."</td>";
   echo "<td>";
 $var=$crieje['id'];
+  echo "<a href=num_eje.php?id=$var>Editar</a></td>";
+  echo "<td>";
   echo "<a href=num_eje.php?id=$var>Alta</a></td>";
   echo "<td>";
   echo "<a href=../php/eliminar_criterio.php?id=$var>Eliminar</a></td>";
@@ -527,6 +530,8 @@ $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
 $stmt2->execute(array(":cri"=>$cri['id']));
 $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
   $var=$subcri['id'];
+  echo "<a href=num_eje.php?id=$var>Editar</a></td>";
+  echo "<td>";
   echo "<a href=num_eje.php?id=$var>Alta</a></td>";
   echo "<td>";
   echo "<a href=../php/eliminar_criterio.php?id=$var>Eliminar</a></td>";
