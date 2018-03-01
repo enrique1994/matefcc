@@ -4,10 +4,10 @@ if(!$profesor->is_loggedin())
 {
  $profesor->redirect('../index.html');
 }
-$nrc=$_GET['id'];
+$sub=$_GET['var'];
 $user_id = $_SESSION['user_session'];
-$stmt = $DB_con->prepare("SELECT * FROM criterios_evaluacion WHERE id=:user_id");
-$stmt->execute(array(":user_id"=>$nrc));
+$stmt = $DB_con->prepare("SELECT * FROM evaluacion WHERE id=:subcri");
+$stmt->execute(array(":subcri"=>$sub));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -470,7 +470,7 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 <form action="../php/anadir_criterio2.php" method="POST">
 <input type="text" name="id" value="<?php echo $userRow['id'];?>" >
 <br>  
-<input type="text" name="nrc" value="<?php echo $userRow['descripcion'];?>" >
+<input type="text" name="titulo" value="<?php echo $userRow['titulo'];?>" placeholder="Titulo" >
 <br>
 <input type="number" name="porcentaje" placeholder="Numero maximo">
 <br>

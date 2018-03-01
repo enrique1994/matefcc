@@ -503,6 +503,9 @@ $stmt3->execute(array(":cri"=>$cri['id']));
 while ($crieje=$stmt3->fetch(PDO::FETCH_ASSOC)){
   echo "<tr>";
   echo "<td></td>";
+  if ($crieje != null) {
+   echo "<td>".$crieje['titulo']."<td>"
+  }else
   echo "<td>Ejercicio".$i."</td>";
   echo "<td>";
 $var=$crieje['id'];
@@ -524,7 +527,10 @@ else
 //Renglon examen
   echo "<tr>";
   echo "<td></td>";
-  echo "<td>Examen</td>";
+  if ($crieje != null) {
+   echo "<td>".$crieje['titulo']."<td>"
+  }else
+  echo "<td>Examen".$i."</td>";
   echo "<td>";
 $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
 $stmt2->execute(array(":cri"=>$cri['id']));
