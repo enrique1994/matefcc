@@ -519,7 +519,10 @@ else
   echo "<td></td>";
   echo "<td>Examen</td>";
   echo "<td>";
-  $var=(string)$cri['id'].'-'.(string)0;
+  $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:crite");
+$stmt2->execute(array(":cri"=>$cri['id']));
+$subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
+  $var=(string)$subcri['id'].'-'.(string)0;
   echo "<a href=num_eje.php?id=$var>Alta</a></td>";
   echo "<td>Eliminar</td>";
   echo "</tr>";
