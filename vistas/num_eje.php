@@ -4,7 +4,7 @@ if(!$profesor->is_loggedin())
 {
  $profesor->redirect('../index.html');
 }
-$sub=$_GET['var'];
+$sub=$_GET['id'];
 $user_id = $_SESSION['user_session'];
 $stmt = $DB_con->prepare("SELECT * FROM evaluacion WHERE id=:subcri");
 $stmt->execute(array(":subcri"=>$sub));
