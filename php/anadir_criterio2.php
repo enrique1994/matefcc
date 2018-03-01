@@ -4,10 +4,7 @@ if(!$profesor->is_loggedin())
 {
  $profesor->redirect('../index.html');
 }
-$user_id = $_SESSION['user_session'];
-$stmt = $DB_con->prepare("SELECT * FROM profesor WHERE id=:user_id");
-$stmt->execute(array(":user_id"=>$user_id));
-$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+
 
 
       $stmt3 = $DB_con->prepare("UPDATE  evaluacion SET maximo_ejer=':ej', titulo=':titulo' where id=:id");
