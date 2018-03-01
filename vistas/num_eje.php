@@ -468,7 +468,7 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
         </div>
         <div class="box-body">
 <form action="../php/anadir_criterio2.php" method="POST">
-<input type="text" name="id" value="<?php echo $userRow['id'];?>" >
+<input type="text" name="id" value="<?php echo $sub;?>" >
 <br>  
 <input type="text" name="titulo" value="<?php echo $userRow['titulo'];?>" placeholder="Titulo" >
 <br>
