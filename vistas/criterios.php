@@ -505,7 +505,7 @@ $stmt1->execute(array(":nrc_curso"=>$nrc));
   echo "<a href=num_eje.php?id=$var>Alta</a></td>";
   echo "<td>Eliminar</td>";
   echo "</tr>";
-/
+
 if ($cri['id_parcial_cri']==$conteo_parcial) {
 //Renglon Parcial #
  //Renglones ejercicios
