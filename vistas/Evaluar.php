@@ -530,9 +530,10 @@ $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
    echo "<td>".$subcri['titulo']."</td>";
   }else
   echo "<td>Examen</td>";
- 
+
   echo "<td>";
   $var=$subcri['id'];
+  echo "<input type=text value=".$subcri['calif'].">";
   echo "<a href=num_eje.php?id=$var>Editar</a></td>";
   echo "</tr>";
 
