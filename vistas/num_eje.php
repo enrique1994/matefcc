@@ -472,7 +472,7 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 <br>  
 <input type="text" name="titulo" value="<?php echo $userRow['titulo'];?>" placeholder="Titulo" >
 <br>
-<input type="number" name="porcentaje" value="<?php echo $userRow['max_ejer'];?>" placeholder="Numero maximo">
+<input type="number" name="porcentaje" value="<?php echo $userRow['maximo_ejer'];?>" placeholder="Numero maximo">
 <br>
 
 <INPUT type="submit" value="Enviar">
