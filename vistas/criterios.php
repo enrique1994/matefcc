@@ -512,7 +512,7 @@ while ($crieje=$stmt3->fetch(PDO::FETCH_ASSOC)){
 $var=$crieje['id'];
   echo "<a href=num_eje.php?id=$var>Editar</a></td>";
   echo "<td>";
-  echo "<a href=num_eje.php?id=$var>Alta</a></td>";
+  echo "<a href=../php/Alta.php?id=$var>Alta</a></td>";
   echo "<td>";
   echo "<a href=../php/eliminar_criterio.php?id=$var>Eliminar</a></td>";
   echo "</tr>";  
