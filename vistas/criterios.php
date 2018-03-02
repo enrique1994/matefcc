@@ -502,7 +502,7 @@ $stmt3 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
 $stmt3->execute(array(":cri"=>$cri['id']));
 while ($crieje=$stmt3->fetch(PDO::FETCH_ASSOC)){
   echo "<tr>";
-  echo "<td></td>";
+
   if ($crieje['titulo'] != null) {
    echo "<td>".$crieje['titulo']."<td>";
   }else{
