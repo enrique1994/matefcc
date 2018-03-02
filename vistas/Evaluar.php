@@ -1,20 +1,32 @@
 <?php
 include_once '../php/conexion.php';
-if(!$alumno->is_loggedin())
+if(!$profesor->is_loggedin())
 {
- $alumno->redirect('../index.html');
+ $profesor->redirect('../index.html');
 }
 $user_id = $_SESSION['user_session'];
 $stmt = $DB_con->prepare("SELECT * FROM alumno WHERE matricula=:user_id");
 $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+$nrc=$_GET['a'];
+$conteo_parcial=0;
+
+
+//echo "<h1>".$nrc."</h1>";
+
+$stmt1 = $DB_con->prepare("SELECT * FROM criterios_evaluacion WHERE nrc_curso=:nrc_curso");
+$stmt1->execute(array(":nrc_curso"=>$nrc));
+  # code...
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SSAP | Administrar cursos</title>
+  <title>SSAP | Criterios</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -266,32 +278,24 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
         </li>
         -->
         <li>
-          <a href="home_alumno.php">
+          <a href="home_profesor.php">
             <i class="glyphicon glyphicon-home"></i> <span>Inicio</span>
             <span class="pull-right-container">
               <!--<small class="label pull-right bg-green">Hot</small> -->
             </span>
           </a>
         </li>
-                <li>
-          <a href="ver_cursos.php">
-            <i class=" fa fa-book"></i> <span>Ver Cursos</span>
-            <span class="pull-right-container">
-              <!--<small class="label pull-right bg-green">Hot</small> -->
-            </span>
-          </a>
-        </li>
-         <li>
-          <a href="<?php print'historial.php?matricula='.($userRow['matricula'])?>">
-            <i class=" fa fa-list-alt"></i> <span>Ver Historial</span>
+        <li>
+          <a href="cursos.php">
+            <i class="glyphicon glyphicon-book"></i> <span>Cursos</span>
             <span class="pull-right-container">
               <!--<small class="label pull-right bg-green">Hot</small> -->
             </span>
           </a>
         </li>
         <li>
-          <a href="ver_profesores.php">
-            <i class=" fa fa-users"></i> <span>Ver Profesores</span>
+          <a href="estadisticas_cursos.php">
+            <i class="fa fa-bar-chart"></i> <span>Estadisticas cursos</span>
             <span class="pull-right-container">
               <!--<small class="label pull-right bg-green">Hot</small> -->
             </span>
@@ -444,7 +448,7 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Cursos 
+        Administrar cursos
        <!-- <small>it all starts here</small>-->
       </h1>
 
@@ -465,9 +469,8 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-             
+              <h3 class="box-title">Parciales de evaluacion</h3>
               <br>
-                
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
@@ -480,107 +483,80 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-            <div ng-app="historial" ng-controller="principal">
-	
               <table class="table table-hover">
                 <tr>
-                 <th>NRC</th>
-				<th>Nombre</th>
-				<th>Sección</th>
-				<th>Profesor</th>
-				<th>Periodo</th>
-                <th>Calificación final</th>
+                  <th>Parcial</th>
+                  <th>Descripcion</th>
+                  <th>Editar</th>
+                  <th>Alta</th>
+                  <th>Eliminar</th>
                 </tr>
-<tr>
-		<td>
-  	<?php
-$stmt1 = $DB_con->prepare("SELECT * FROM inscripcion WHERE id_alumno =:user_id");
-$stmt1->execute(array(":user_id"=>$user_id));
-$ins=$stmt1->fetch(PDO::FETCH_ASSOC);
 
-echo $ins['id_curso'];
-  	?>
-  	</td>
- 
-  <td>
-  	<?php
-$stmt2 = $DB_con->prepare("SELECT * FROM curso WHERE nrc =:id_mat");
-$stmt2->execute(array(":id_mat"=>$ins['id_curso']));
-$cur=$stmt2->fetch(PDO::FETCH_ASSOC);
+                  <?php while ($cri=$stmt1->fetch(PDO::FETCH_ASSOC)) {
 
-$stmt3 = $DB_con->prepare("SELECT * FROM materia WHERE id =:id_mat");
-$stmt3->execute(array(":id_mat"=>$cur['id_materia']));
-$mat=$stmt3->fetch(PDO::FETCH_ASSOC);
-
-echo $mat['nombre'];
-  	?>
-  	</td>
-
-<td>
-	<?php
-$stmt4 = $DB_con->prepare("SELECT * FROM seccion WHERE id =:id_sec");
-$stmt4->execute(array(":id_sec"=>$cur['seccion']));
-$secc=$stmt4->fetch(PDO::FETCH_ASSOC);
-
-echo $secc['secc'];
-	?>
-</td>
-
-
-<td>
-<?php
-$stmt5 = $DB_con->prepare("SELECT * FROM profesor WHERE id =:id_pro");
-$stmt5->execute(array(":id_pro"=>$cur['id_profesor']));
-$prof=$stmt5->fetch(PDO::FETCH_ASSOC);
-
-echo $prof['nombre']." ".$prof['paterno']." ".$prof['materno'];
-	?>
-</td>
-
-<td>
-<?php
-$stmt6 = $DB_con->prepare("SELECT * FROM periodo WHERE id =:id_per");
-$stmt6->execute(array(":id_per"=>$cur['periodo']));
-$per=$stmt6->fetch(PDO::FETCH_ASSOC);
-
-echo $per['ciclo']." ".$per['year'];
-	?>
-</td>
-<form action="../php/calificacion_alumno.php" method="POST">
-<td>
-<?php
-
-
-$min=localtime()[1];
- 
-
-//$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE nrc_curso=:id_cur and id_criterios=:crit and id_alumno=:id_alumno");
-//$stmt7->execute(array(":id_cur"=>$a,"crit"=>$cri['id'],"id_alumno"=>$user_id));
-
-$stmt7 = $DB_con->prepare("SELECT * FROM evaluacion WHERE hora+20 >$min and id_alumno=:mat and nrc_curso=:id_curso and calif=0");
-      $stmt7->bindParam(":id_curso",$ins['id_curso']);
-      $stmt7->bindParam(":mat",$userRow['matricula']);
-      
-//$stmt7->execute(array(":id_curso"=>$ins['id_curso'],":mat"=>$userRow['matricula']));
-
-//$cal=$stmt7->fetch(PDO::FETCH_ASSOC)
-if($stmt7->execute()){
-  $cal=$stmt7->fetch(PDO::FETCH_ASSOC);
-echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
+if ($cri['id_parcial_cri']==$conteo_parcial) {
+//Renglon Parcial #
+//Renglones ejercicios
+   
+$stmt3 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
+$stmt3->execute(array(":cri"=>$cri['id']));
+while ($crieje=$stmt3->fetch(PDO::FETCH_ASSOC)){
+  echo "<tr>";
+  echo "<td></td>";
+  if ($crieje['titulo'] != null) {
+   echo "<td>".$crieje['titulo']."</td>";
+  }else{
+  echo "<td>Ejercicio".$i."</td>";
   }
-  ?>
-</td>
+  echo "<td>";
+$var=$crieje['id'];
+  echo "<a href=num_eje.php?id=$var>Editar</a></td>";
+  echo "<td>";
+  echo "<a href=../php/Alta.php?id=$var>Alta</a></td>";
+  echo "<td>";
+  echo "<a href=../php/eliminar_criterio.php?id=$var>Eliminar</a></td>";
+  echo "</tr>";  
+}
+}
+else
+{
+  $conteo_parcial++;
+  echo "<tr>";
+  echo "<td>";
+  echo "Parcial ".$conteo_parcial."</td>";
+  echo "</tr>";
+//Renglon examen
+  echo "<tr>";
+  echo "<td>";
+$stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
+$stmt2->execute(array(":cri"=>$cri['id']));
+$subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
+  if ($subcri['titulo'] != null) {
+   echo "<td>".$subcri['titulo']."</td>";
+  }else
+  echo "<td>Examen</td>";
+ 
+  echo "<td>";
+  $var=$subcri['id'];
+  echo "<a href=num_eje.php?id=$var>Editar</a></td>";
+  echo "<td>";
+  echo "<a href=../php/Alta.php?id=$var>Alta</a></td>";
+  echo "<td>";
+  echo "<a href=../php/eliminar_criterio.php?id=$var>Eliminar</a></td>";
+  echo "</tr>";
 
-			</tr>
+}
+}
+?>
 
 
               </table>
-              <input type="submit" value="Subir">
-</form>
-
-              </div>
             </div>
             <!-- /.box-body -->
+             <a href="anadir_porcentaje.php?nrc=<?php echo $nrc ?>">Anadir criterio</a>
+ <br>
+ <a href="subir_calificacion_porcentaje.php?nrc=<?php echo $nrc ?>">Subir calificaciones criterios</a>
+ <br>
            
           </div>
           <!-- /.box -->
@@ -808,7 +784,5 @@ echo "<input type='text' size=2 value=".$cal['calif']." name=".$cal['id'].">";
 <script src="../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
-<script src="../js/angular.min.js"></script>
-<script src="../scripts/historial.js"></script>
 </body>
 </html>
