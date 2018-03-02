@@ -532,7 +532,7 @@ $stmt2 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:cri");
 $stmt2->execute(array(":cri"=>$cri['id']));
 $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
   if ($subcri['titulo'] != null) {
-   echo "<td>".$subcri['titulo']."<td>";
+   echo "<td>".$subcri['titulo']."</td>";
   }else
   echo "<td>Examen</td>";
  
