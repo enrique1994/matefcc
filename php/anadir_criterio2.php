@@ -6,8 +6,8 @@ if(!$profesor->is_loggedin())
 }
 
 
-
-      $stmt3 = $DB_con->prepare("UPDATE  evaluacion SET maximo_ejer=':ej', titulo=':titulo' where id=:id");
+      echo $_POST;
+      $stmt3 = $DB_con->prepare("UPDATE  evaluacion SET maximo_ejer=:ej, titulo=:titulo where id=:id");
       $stmt3->bindParam(":id",$_POST['id']);
       $stmt3->bindParam(":titulo",$_POST['titulo']);
       $stmt3->bindParam(":ej",$_POST['porcentaje']);
