@@ -533,7 +533,12 @@ $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
 
   echo "<td>";
   $var=$subcri['id'];
-  echo "<input type=text value=".$subcri['calif'].">";
+  echo "<form action='../php/SubirCalificacionSub.php'>";
+  echo "<input type=text value=".$subcri['calif']." name=".$subcri['id'].">";
+  if ($subcri['hora']!=0) {
+    echo "<input type=submit value=Submit></form>";
+  }
+  echo "</form>";
   echo "<a href=num_eje.php?id=$var>Editar</a></td>";
   echo "</tr>";
 
