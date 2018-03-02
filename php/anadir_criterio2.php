@@ -21,7 +21,7 @@ echo '<script language="javascript">window.location.href="../vistas/cursos.php" 
           echo "No se puede ejecutar !";
         }
 
-}
+
 
 
  ?>
