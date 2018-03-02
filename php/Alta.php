@@ -7,7 +7,7 @@ if(!$profesor->is_loggedin())
 
 
       echo $_POST;
-      $stmt3 = $DB_con->prepare("UPDATE  evaluacion SET hora where id=:id");
+      $stmt3 = $DB_con->prepare("UPDATE  evaluacion SET hora=:hora where id=:id");
       $stmt3->bindParam(":id",$_POST['id']);
 $stmt3->bindParam(":hora", localtime()[1]);
         if($stmt3->execute())
