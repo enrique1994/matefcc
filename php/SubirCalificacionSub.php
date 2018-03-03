@@ -1,8 +1,8 @@
 <?php
 include_once '../php/conexion.php';
-if(!$profesor->is_loggedin())
+if(!$alumno->is_loggedin())
 {
- $profesor->redirect('../index.html');
+ $alumno->redirect('../index.html');
 }
 $user_id = $_SESSION['user_session'];
 
