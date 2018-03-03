@@ -8,6 +8,7 @@ $user_id = $_SESSION['user_session'];
 $cuenta=0;
 //echo $hola[24];
 
+
 $stmt1 = $DB_con->prepare("UPDATE evaluacion set calif=$calif/maximo_ejer*10, num_ejer=:calif, hora=0 WHERE id=:id");
 $stmt1->bindParam(":calif",$_POST['calif']);
 $stmt1->bindParam(":id",$_POST['id']);
