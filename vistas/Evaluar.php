@@ -535,9 +535,15 @@ $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
   $var=$subcri['id'];
   echo "<form action='../php/SubirCalificacionSub.php' method=POST>";
   echo "<input type=hidden value=".$var." name=id>";
-  echo "<input type=text value=".$subcri['calif']." name=calif>";
+
   if ($subcri['hora']!=0) {
+  echo "<input type=text value=".$subcri['calif']." name=calif>";
     echo "<input type=submit value=Submit></form>";
+  }
+  else{
+    echo $subcri['num_ejer'];
+    echo "<br>";
+    echo $subcri['calif'];
   }
   echo "</form>";
   echo "</tr>";
