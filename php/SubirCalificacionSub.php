@@ -19,7 +19,6 @@ $stmt1->bindParam(":calif",$_POST['calif']);
 $stmt1->bindParam(":id",$_POST['id']);
 
 
-
         if($stmt1->execute())
         {
 echo '<script language="javascript">alert("Calificacion subida correctamente")</script>'; 
@@ -29,7 +28,7 @@ echo '<script language="javascript">window.location.href="../vistas/ver_cursos.p
         {
           echo "No se puede ejecutar !";
         }
-	#
+	
 }else
 {
 echo '<script language="javascript">alert("Limite de tiempo sobrepasado")</script>'; 

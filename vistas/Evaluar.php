@@ -541,9 +541,9 @@ $subcri=$stmt2->fetch(PDO::FETCH_ASSOC);
     echo "<input type=submit value=Submit></form>";
   }
   else{
-    echo $subcri['num_ejer'];
+    echo "Numero de ejercicios registrado:".$subcri['num_ejer'];
     echo "<br>";
-    echo $subcri['calif'];
+    echo "Calificacion:".$subcri['calif'];
   }
   echo "</form>";
   echo "</tr>";
