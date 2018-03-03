@@ -13,15 +13,11 @@ $cc=$stmt2->rowCount();
 $cuenta=0;
 //echo $hola[24];
 
-if($value>=0 && $value<=10){
-$stmt1 = $DB_con->prepare("UPDATE evaluacion set calif=$value/maximo_ejer*10, num_ejer=:calif, hora=0 WHERE id=:id");
+
+$stmt1 = $DB_con->prepare("UPDATE evaluacion set calif=$calif/maximo_ejer*10, num_ejer=:calif, hora=0 WHERE id=:id");
 $stmt1->bindParam(":calif",$_POST['calif']);
 $stmt1->bindParam(":id",$_POST['id']);
 $stmt1->execute();
-}else{
-	$cuenta+=1;
-
-}
 
 
 
