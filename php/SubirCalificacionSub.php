@@ -7,12 +7,11 @@ if(!$alumno->is_loggedin())
 $user_id = $_SESSION['user_session'];
 
 
-$stmt2 = $DB_con->prepare("SELECT * FROM evaluacion ");
-$stmt2->execute();
-$cc=$stmt2->rowCount();
+
 $cuenta=0;
 //echo $hola[24];
-
+echo $_POST['calif'];
+echo $_POST['id'];
 
 $stmt1 = $DB_con->prepare("UPDATE evaluacion set calif=$calif/maximo_ejer*10, num_ejer=:calif, hora=0 WHERE id=:id");
 $stmt1->bindParam(":calif",$_POST['calif']);
