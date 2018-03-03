@@ -10,7 +10,10 @@ $cuenta=0;
 
 $calif=$_POST['calif'];
 $min=localtime()[1];
-$stmt2 = $DB_con->prepare("SELECT * FROM evaluacion where id=:id and $min<=hora+20");
+$stmt2 = $DB_con->prepare("SELECT * FROM evaluacion where id=:id and :min<=hora+20");
+$stmt2->bindParam(":calif",$_POST['id']);
+$stmt2->bindParam(":calif",$min);
+
 $stmt2->execute();
 $cc=$stmt2->rowCount();
 if ($cc>0) {
