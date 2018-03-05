@@ -50,7 +50,7 @@ $prof = mysqli_fetch_assoc($result);
 
 
 
-       for ($j=0; $j <10 ; $j++) { 
+       for ($j=0; $j <5 ; $j++) { 
          # code...
        $crit="Ejercicio";
                     if(!mysqli_query($con,"INSERT INTO evaluacion (calif,nrc_curso,id_criterios,id_alumno,maximo_ejer)  VALUES  ('0',$nrc,$last_id,'".$item['matricula']."','5')")){
