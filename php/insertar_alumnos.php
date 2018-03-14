@@ -19,6 +19,12 @@ $prof = mysqli_fetch_assoc($result);
 
       foreach($json as $item) {
 
+$sql = "SELECT * FROM alumno where matricula=$item";
+$result = mysqli_query($con, $sql);
+
+
+if (mysqli_field_count($con)) {
+  # code...
 
        if(!mysqli_query($con,"INSERT INTO inscripcion (id_curso, id_alumno) VALUES ($nrc,'".$item['matricula']."')")){
            $error = true; //error
@@ -66,7 +72,7 @@ $prof = mysqli_fetch_assoc($result);
         echo 0; //error
     }else echo 1;
 
-
+}
 mysqli_close($con);
   } else {
     echo "Error post";
