@@ -15,7 +15,7 @@ $promedio=0;
 $stmt2 = $DB_con->prepare("SELECT * FROM inscripcion WHERE id_curso=:user_id");
 $stmt2->execute(array(":user_id"=>$nrc));
 
-$stmt4 = $DB_con->prepare("SELECT * FROM criterios_evaluacion WHERE nrc_curso=:user_id");
+$stmt4 = $DB_con->prepare("SELECT * FROM parcial WHERE id_curso_parcial=:user_id");
 $stmt4->execute(array(":user_id"=>$nrc));
 ?>
 
@@ -485,105 +485,35 @@ $stmt4->execute(array(":user_id"=>$nrc));
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th>Matrícula</th>
-                  <th>Nombre</th>
-                  <th>Apellido Paterno</th>
-                  <th>Apellido Materno</th>
-                  <?php while($criterio=$stmt4->fetch(PDO::FETCH_ASSOC)){?>
-	<th><?php 
-
-	echo $criterio['descripcion'];} ?></th>
-    <th>Final</th>
+                  <th>Parcial</th>
+                  <th>Matricula</th>
+                  <th>Calificacion</th>
                 </tr>
-                	<?php
-while($curso=$stmt2->fetch(PDO::FETCH_ASSOC))	{
-	$final=0;
-?>
-<tr>
-
+  
+                  <?php while($criterio=$stmt4->fetch(PDO::FETCH_ASSOC)){?>
+	<tr>
 <td>
-<?php
-echo $curso['id_alumno'];
- 
- ?>
- </td>
-<td>
-<?php
-$stmt3 = $DB_con->prepare("SELECT * FROM alumno WHERE matricula=:user_id");
-$stmt3->execute(array(":user_id"=>$curso['id_alumno']));
-$nombre=$stmt3->fetch(PDO::FETCH_ASSOC);
-echo $nombre['nombre'];
-
-?>
-</td>
-<td>
-<?php
-echo $nombre['paterno'];
-?>
+  <?php
+echo $criterio['num_p'];
+  ?>
 </td>
 
 <td>
-<?php
-echo $nombre['materno'];
-
-?>
+  <?php
+echo $criterio['matricula'];
+  ?>
 </td>
-
-
-	<?php
-$stmt4 = $DB_con->prepare("SELECT * FROM criterios_evaluacion WHERE nrc_curso=:user_id");
-$stmt4->execute(array(":user_id"=>$nrc));
-//echo $stmt4->rowCount();
-while($clase=$stmt4->fetch(PDO::FETCH_ASSOC)){
-//echo $clase['porcentaje']."<br>";
-$final=$clase['porcentaje']/10;
-
-$stmt6 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:user_id and id_alumno=:mat");
-$stmt6->execute(array(":user_id"=>$clase['id'],":mat"=>$nombre['matricula']));
-$veces=$stmt6->rowCount();
-
-$stmt5 = $DB_con->prepare("SELECT sum(calif) FROM evaluacion WHERE id_criterios=:user_id and id_alumno=:eva");
-$stmt5->execute(array(":user_id"=>$clase['id'],":eva"=>$nombre['matricula']));
-while ($calif=$stmt5->fetch(PDO::FETCH_ASSOC)) {
-$cali = $calif['sum(calif)']/$veces*$final;
-//echo $cali;
-$promedio+=$cali;
-
-	?>
 
 <td>
-<?php
-echo $cali;
-
-?>
+  <?php
+echo $criterio['calif'];
+  ?>
 </td>
-<?php
 
-}
-
-}
-
-
-
-?>
-<td>
-	<?php
-echo $promedio;
-$stmt7 = $DB_con->prepare("UPDATE inscripcion set calificacion=:prom WHERE id_curso=:curso and id_alumno=:alumno");
-	$promedio/=10;
-    $stmt7->bindParam(":prom",$promedio);
-    $stmt7->bindParam(":curso",$nrc);
-    $stmt7->bindParam(":alumno",$nombre['matricula']);
-    $stmt7->execute();
-
-
-$promedio=0;
-
-}
-	?>
-
-</td>
 </tr>
+<?php
+}
+?>
 
 
               </table>
