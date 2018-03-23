@@ -487,20 +487,32 @@ $stmt4->execute(array(":user_id"=>$nrc));
                 <tr>
                   <th>Parcial</th>
                   <th>Matricula</th>
-                  <th>Calificacion</th>
+                  <th>Calificacion final</th>
+                  <th>Parcial 1</th>
+                  <th>Parcial 2</th>
+                  <th>Parcial 3</th>
                 </tr>
   
                   <?php while($criterio=$stmt4->fetch(PDO::FETCH_ASSOC)){?>
 	<tr>
 <td>
   <?php
-echo $criterio['num_p'];
+echo $criterio['matricula'];
   ?>
 </td>
-
 <td>
   <?php
-echo $criterio['matricula'];
+echo $criterio['calif'];
+  ?>
+</td>
+<td>
+  <?php
+echo $criterio['calif'];
+  ?>
+</td>
+<td>
+  <?php
+echo $criterio['calif'];
   ?>
 </td>
 
