@@ -514,7 +514,7 @@ if ($subcriterio['num_ejer']!=null)
 <?
 else
 ?>
-<td><?php echo "<input value=".'0'." name=".$subcriterio['id']." />";?></td>
+<td><?php echo "<input value=0 name=".$subcriterio['id']." />";?></td>
 
 
 
