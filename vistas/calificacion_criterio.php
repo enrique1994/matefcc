@@ -516,7 +516,7 @@ echo $criterio['calif'];
 </td>
 
 <td>
-  <a href="detalle_criterio.php?id=<?php echo $criterio['idparcial']; ?>"></a>
+  <a href="detalle_criterio.php?id=<?php echo $criterio['idparcial']; ?>">Detalles</a>
 
 </td>
 
