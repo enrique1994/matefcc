@@ -509,12 +509,8 @@ while($subcriterio=$stmt3->fetch(PDO::FETCH_ASSOC)){
 <td><?php echo $subcriterio['maximo_ejer'];?></td>
 <?php
 if ($subcriterio['num_ejer']!=null) 
+echo "<td> <input type=text value".$subcriterio['num_ejer']."name=".$subcriterio['id']."/></td>";
 ?>
-<td><?php echo "<input value=".$subcriterio['num_ejer']." name=".$subcriterio['id']." />";?></td>
-<?
-else
-?>
-<td><?php echo "<input value=0 name=".$subcriterio['id']." />";?></td>
 
 
 
