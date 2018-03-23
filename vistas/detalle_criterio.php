@@ -510,6 +510,9 @@ while($subcriterio=$stmt3->fetch(PDO::FETCH_ASSOC)){
 <?php
 if ($subcriterio['num_ejer']!=null) 
 echo "<td> <input type=text value=".$subcriterio['num_ejer']." name=".$subcriterio['id']." /></td>";
+else
+echo "<td> <input type=text value=0 name=".$subcriterio['id']." /></td>";
+
 ?>
 
 
