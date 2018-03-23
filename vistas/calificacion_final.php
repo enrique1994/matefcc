@@ -485,7 +485,7 @@ $stmt4->execute(array(":user_id"=>$nrc));
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th>Parcial</th>
+                  
                   <th>Matricula</th>
                   <th>Calificacion final</th>
                   <th>Parcial 1</th>
