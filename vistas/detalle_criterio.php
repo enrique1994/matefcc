@@ -492,17 +492,27 @@ $stmt2->execute(array(":user_id"=>$id));
   
                   <?php while($criterio=$stmt2->fetch(PDO::FETCH_ASSOC)){?>
 	<tr>
-
-
 <td>
   <?php
 echo $criterio['descripcion'];
   ?>
 </td>
-
-
 </tr>
 <?php
+$stmt3 = $DB_con->prepare("SELECT * FROM evaluacion WHERE id_criterios=:user_id");
+$stmt3->execute(array(":user_id"=>$criterio['id']));
+while($subcriterio=$stmt3->fetch(PDO::FETCH_ASSOC)){
+?>
+<tr>
+<td></td>
+<td><?php echo $subcriterio['titulo'];?></td>
+<td><?php echo $subcriterio['maximo_ejer'];?></td>
+<td><?php echo $subcriterio['num_ejer'];?></td>
+<td><?php echo $subcriterio['calif'];?></td>
+</tr>
+
+<?php
+}
 }
 ?>
 
