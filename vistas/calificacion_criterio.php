@@ -492,17 +492,21 @@ $stmt4->execute(array(":user_id"=>$nrc));
   
                   <?php while($criterio=$stmt4->fetch(PDO::FETCH_ASSOC)){?>
 	<tr>
-<td>
-  <?php
-echo $criterio['num_p'];
-  ?>
-</td>
+
 
 <td>
   <?php
 echo $criterio['matricula'];
   ?>
 </td>
+
+
+<td>
+  <?php
+echo $criterio['num_p'];
+  ?>
+</td>
+
 
 <td>
   <?php
