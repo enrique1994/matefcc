@@ -485,9 +485,10 @@ $stmt4->execute(array(":user_id"=>$nrc));
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th>Parcial</th>
                   <th>Matricula</th>
+                  <th>Parcial</th>
                   <th>Calificacion</th>
+                  <th>Detalles</th>
                 </tr>
   
                   <?php while($criterio=$stmt4->fetch(PDO::FETCH_ASSOC)){?>
@@ -512,6 +513,11 @@ echo $criterio['num_p'];
   <?php
 echo $criterio['calif'];
   ?>
+</td>
+
+<td>
+  <a href="detalle_criterio.php?id=<?php echo $criterio['idparcial']; ?>"></a>
+
 </td>
 
 </tr>
