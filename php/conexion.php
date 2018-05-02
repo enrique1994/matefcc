@@ -2,10 +2,10 @@
 
 session_start();
 
-$DB_host = "us-cdbr-azure-southcentral-f.cloudapp.net";
-$DB_user = "b9a859ae739783";
-$DB_pass = "903a2e5b";
-$DB_name = "matefcc";
+$DB_host = "localhost";
+$DB_user = "id5598318_root";
+$DB_pass = "wrestlemania";
+$DB_name = "id5598318_matecomp";
 
 /*
 $DB_host = "localhost";
